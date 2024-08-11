@@ -1,12 +1,11 @@
-version: '3.8'
-
+version: '3'
 services:
   app:
     build: .
     ports:
-      - '3000:3000'
-    env_file:
-      - .env
+      - "3000:3000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
     volumes:
-      - .:/usr/src/app
-    command: npm start
+      - .:/app
+      - /app/node_modules
