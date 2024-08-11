@@ -3,6 +3,7 @@ const fs = require('fs').promises;
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 dotenv.config();
 const app = express();
