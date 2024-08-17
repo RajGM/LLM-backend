@@ -11,11 +11,18 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
+const originalArticle = `Version 1: Truthful Incident A human finger was discovered in a tub of ice cream purchased from a local grocery store in Springfield. The shocking find was made by a customer who immediately reported it to the authorities. Springfield Police Department has launched an investigation to determine how the finger ended up in the ice cream.`;
+
 app.post('/', async (req, res) => {
     try {
         const article = req.body.article || originalArticle;
-        const analysisResult = await analyzeArticle(article);
-        res.json(analysisResult);
+        //const analysisResult = await analyzeArticle(article);
+
+        const data = await fs.readFile('./data.json', 'utf-8');
+        const jsonData = JSON.parse(data);
+        res.json(jsonData);
+
+        //res.json(analysisResult);
     } catch (error) {
         console.error("Error processing article:", error);
         res.status(500).json({ error: 'An error occurred while processing the article.' });
@@ -30,8 +37,6 @@ app.listen(PORT, () => {
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
-
-const originalArticle = `Version 1: Truthful Incident A human finger was discovered in a tub of ice cream purchased from a local grocery store in Springfield. The shocking find was made by a customer who immediately reported it to the authorities. Springfield Police Department has launched an investigation to determine how the finger ended up in the ice cream.`;
 
 async function generateQuestions(text) {
     const response = await openai.chat.completions.create({
@@ -65,7 +70,7 @@ async function generateVersions(originalArticle, numVersions) {
         model: "gpt-3.5-turbo",
         messages: [
             { role: "system", content: "You are an assistant that creates versions of news articles with increasing levels of misinformation. Return your response as a JSON object with a 'versions' key containing an array of strings." },
-            { role: "user", content: `Create ${numVersions} versions of this article, each with more misinformation than the previous version. Increase the level of distortion gradually. Here's the original article:\n\n${originalArticle}\n\nProvide your response as a JSON object with a 'versions' key containing an array of strings, where each string is a version of the article.` }
+            { role: "user", content: `Create ${numVersions} versions of this article, each with more misinformation than the previous version.  Increase the level of distortion gradually. Here's the original article:\n\n${originalArticle}\n\nProvide your response as a JSON object with a 'versions' key containing an array of strings, where each string is a version of the article.` }
         ],
         response_format: { type: "json_object" }
     });
