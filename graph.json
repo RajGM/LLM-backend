@@ -1,0 +1,284 @@
+{
+    "nodes": [
+        {
+            "id": 0,
+            "articles": [
+                {
+                    "infoId": "info-001",
+                    "content": "Shocking news today in Springfield as a human finger was found in a tub of ice cream bought from a local grocery store. The police are investigating the incident to uncover how the finger got there.",
+                    "nodeXAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "node0Answers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "auditorAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "questions": [
+                        "Was a human finger found in a tub of ice cream from a local grocery store in Springfield?",
+                        "Did a customer report the discovery of the human finger to the authorities?",
+                        "Has the Springfield Police Department initiated an investigation into the incident?",
+                        "Are there concerns about the safety and quality of products sold at the local grocery store following this incident?",
+                        "Are there any rumors circulating about the origin of the human finger found in the ice cream?"
+                    ],
+                    "misInformationIndexArray": {
+                        "I0": 0,
+                        "I1": 0,
+                        "I2": 0
+                    },
+                    "sender": 0
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "articles": [
+                {
+                    "infoId": "info-001",
+                    "content": "A human finger was discovered in a tub of ice cream purchased from a grocery store in Springfield today. Authorities are currently investigating the situation to determine the source of the finger.",
+                    "nodeXAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "node0Answers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "auditorAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "questions": [
+                        "Was a human finger found in a tub of ice cream from a local grocery store in Springfield?",
+                        "Did a customer report the discovery of the human finger to the authorities?",
+                        "Has the Springfield Police Department initiated an investigation into the incident?",
+                        "Are there concerns about the safety and quality of products sold at the local grocery store following this incident?",
+                        "Are there any rumors circulating about the origin of the human finger found in the ice cream?"
+                    ],
+                    "misInformationIndexArray": {
+                        "I0": 1,
+                        "I1": 0,
+                        "I2": 1
+                    },
+                    "sender": 1
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "articles": [
+                {
+                    "infoId": "info-001",
+                    "content": "Human finger found in ice cream tub purchased in Springfield. Authorities investigating the incident to identify finger's origin.",
+                    "nodeXAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "node0Answers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "auditorAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "questions": [
+                        "Was a human finger found in a tub of ice cream from a local grocery store in Springfield?",
+                        "Did a customer report the discovery of the human finger to the authorities?",
+                        "Has the Springfield Police Department initiated an investigation into the incident?",
+                        "Are there concerns about the safety and quality of products sold at the local grocery store following this incident?",
+                        "Are there any rumors circulating about the origin of the human finger found in the ice cream?"
+                    ],
+                    "misInformationIndexArray": {
+                        "I0": 1,
+                        "I1": 0,
+                        "I2": 1
+                    },
+                    "sender": 2
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "articles": [
+                {
+                    "infoId": "info-001",
+                    "content": "Finger found in ice cream tub bought in Springfield. Authorities probing to determine its origin.",
+                    "nodeXAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "node0Answers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "auditorAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "questions": [
+                        "Was a human finger found in a tub of ice cream from a local grocery store in Springfield?",
+                        "Did a customer report the discovery of the human finger to the authorities?",
+                        "Has the Springfield Police Department initiated an investigation into the incident?",
+                        "Are there concerns about the safety and quality of products sold at the local grocery store following this incident?",
+                        "Are there any rumors circulating about the origin of the human finger found in the ice cream?"
+                    ],
+                    "misInformationIndexArray": {
+                        "I0": 1,
+                        "I1": 0,
+                        "I2": 1
+                    },
+                    "sender": 3
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "articles": [
+                {
+                    "infoId": "info-001",
+                    "content": "Finger discovered in ice cream tub purchased in Springfield. Authorities investigating to identify its source.",
+                    "nodeXAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "node0Answers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "auditorAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "questions": [
+                        "Was a human finger found in a tub of ice cream from a local grocery store in Springfield?",
+                        "Did a customer report the discovery of the human finger to the authorities?",
+                        "Has the Springfield Police Department initiated an investigation into the incident?",
+                        "Are there concerns about the safety and quality of products sold at the local grocery store following this incident?",
+                        "Are there any rumors circulating about the origin of the human finger found in the ice cream?"
+                    ],
+                    "misInformationIndexArray": {
+                        "I0": 1,
+                        "I1": 0,
+                        "I2": 1
+                    },
+                    "sender": 4
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "articles": [
+                {
+                    "infoId": "info-001",
+                    "content": "Finger found in ice cream tub bought in Springfield. Authorities working to determine its origin.",
+                    "nodeXAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "node0Answers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "auditorAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "questions": [
+                        "Was a human finger found in a tub of ice cream from a local grocery store in Springfield?",
+                        "Did a customer report the discovery of the human finger to the authorities?",
+                        "Has the Springfield Police Department initiated an investigation into the incident?",
+                        "Are there concerns about the safety and quality of products sold at the local grocery store following this incident?",
+                        "Are there any rumors circulating about the origin of the human finger found in the ice cream?"
+                    ],
+                    "misInformationIndexArray": {
+                        "I0": 1,
+                        "I1": 0,
+                        "I2": 1
+                    },
+                    "sender": 5
+                }
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "source": 0,
+            "target": 1
+        },
+        {
+            "source": 1,
+            "target": 2
+        },
+        {
+            "source": 2,
+            "target": 3
+        },
+        {
+            "source": 3,
+            "target": 4
+        },
+        {
+            "source": 4,
+            "target": 5
+        }
+    ]
+}

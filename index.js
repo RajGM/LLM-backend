@@ -29,6 +29,20 @@ app.post('/', async (req, res) => {
     }
 });
 
+app.get('/', async (req, res) => {
+    try {
+
+        const data = await fs.readFile('./graph.json', 'utf-8');
+        const jsonData = JSON.parse(data);
+        res.json(jsonData);
+
+        //res.json(analysisResult);
+    } catch (error) {
+        console.error("Error processing article:", error);
+        res.status(500).json({ error: 'An error occurred while processing the article.' });
+    }
+});
+
 const PORT = 3000 | process.env.PORT;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
@@ -42,8 +56,8 @@ async function generateQuestions(text) {
     const response = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [
-            { role: "system", content: "You are a helpful assistant that generates yes/no questions based on a given text. Your questions should be fact-based and cover various aspects of the incident, including potential developments or rumors that might arise in later versions of the story. Return your response as a JSON object with a 'questions' key containing an array of 20 strings." },
-            { role: "user", content: `Generate 5 yes/no questions based on the following text and potential developments that might occur in later versions of the story. The questions should cover various aspects such as the incident itself, the company's response, potential investigations, public health concerns, and possible rumors or allegations that might arise.
+            { role: "system", content: "You are an external auditor assigned to generate yes/no questions based on a given text. Your questions should be fact-based and cover various aspects of the incident, including potential developments or rumors that might arise in later versions of the story. Return your response as a JSON object with a 'questions' key containing an array of 20 strings." },
+            { role: "user", content: `Generate 5 yes/no questions based on the following text and potential developments that might occur in later versions of the story. The questions should cover various aspects such as the incident itself, the company's response, potential investigations, public concerns, and possible rumors or allegations that might arise.
 
 Original Article:
 ${text}
@@ -84,7 +98,7 @@ async function answerQuestions(article, questions) {
     const response = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [
-            { role: "system", content: "You are a helpful assistant that answers yes/no questions based on a given text. Return your response as a JSON object with an 'answers' key containing an array of 1 (for Yes) or 0 (for No)." },
+            { role: "system", content: "You are an external fact checker that answers yes/no questions based on a given text. Return your response as a JSON object with an 'answers' key containing an array of 1 (for Yes) or 0 (for No)." },
             { role: "user", content: `Answer the following yes/no questions based on this text:\n\n${article}\n\nQuestions:\n${questions.join('\n')}\n\nProvide your response as a JSON object with an 'answers' key containing an array of 1 (for Yes) or 0 (for No).` }
         ],
         response_format: { type: "json_object" }
