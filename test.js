@@ -2,6 +2,7 @@ const fs = require('fs');
 const OpenAI = require('openai');
 
 const openai = new OpenAI({
+    apiKey: "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"
 });
 
 class Info {
@@ -32,27 +33,6 @@ class Node {
         this.queue.push(infoObj);
     }
 
-    // async processInfo() {
-    //     while (this.queue.length > 0) {
-    //         const info = this.queue.shift();
-    //         console.log(`Node ${this.id} is processing info.`);
-    //         const updatedInfo = await this.analyzeAndProcess(info); // Ensure all tasks are done here
-    //         this.articles.push(updatedInfo); // Save the updated info in the articles array
-    //         console.log(`Node ${this.id} added an article to its articles array.`);
-
-    //         this.articles.forEach((article, index) => {
-    //             console.log(`Node ${this.id} Article ${index}:`);
-    //             Object.keys(article).forEach(key => {
-    //                 console.log(`Key: ${key}, Value: ${JSON.stringify(article[key], null, 2)}`);
-    //             });
-    //         });
-
-
-
-    //         await this.distribute(updatedInfo, info.sender); // Ensure neighbors process immediately
-    //     }
-    // }
-
     async processInfo() {
         while (this.queue.length > 0) {
             const info = this.queue.shift();
@@ -65,10 +45,6 @@ class Node {
             await this.distribute(updatedInfo, info.sender);
         }
     }
-
-
-
-
 
     // Method to analyze, rewrite, answer questions, and calculate misinformation index
     async analyzeAndProcess(info) {
@@ -117,13 +93,19 @@ class Node {
         return updatedInfo; // Return the updated info to be saved in the articles array
     }
 
+    // { role: "system", content: "You are an assistant that creates versions of news articles with increasing levels of misinformation. Return your response as a JSON object with a 'versions' key containing an array of strings." },
+    // { role: "user", content: `Create ${numVersions} versions of this article, each with more misinformation than the previous version.  Increase the level of distortion gradually. Here's the original article:\n\n${originalArticle}\n\nProvide your response as a JSON object with a 'versions' key containing an array of strings, where each string is a version of the article.` }
+
+
     // Rewrite the content using the prompt and OpenAI API, returning a JSON object with newArticle
     async rewriteContent(content) {
         const response = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
             messages: [
-                { role: "system", content: "You are an assistant that rewrites content based on the given prompt." },
-                { role: "user", content: `Rewrite this article using the following prompt: ${this.prompt}.\n\nOriginal Article: \n${content} Provide your response as a JSON object with a 'article' as key containing an string, as version of the article.` }
+                { role: "system", content: `You are an assistant that rewrites content based on the given prompt:${this.prompt} ` },
+                { role: "user", content: `Create a new versions of this article, with more misinformation than the previous version.  Increase the level of distortion exponentially. Here's the original article:\n\n${content}\n\n Provide your response as a JSON object with a 'article' as key containing an string, as version of the article` }
+                // { role: "system", content: "You are an assistant that rewrites content based on the given prompt." },
+                // { role: "user", content: `Rewrite this article using the following prompt: ${this.prompt}.\n\nOriginal Article: \n${content} Provide your response as a JSON object with a 'article' as key containing an string, as version of the article.` }
             ],
             response_format: { type: "json_object" }
         });
@@ -157,7 +139,6 @@ class Node {
                 throw new Error("No valid answers received from OpenAI.");
             }
 
-            console.log("Answers from OpenAI:", result.answers);
             return result.answers; // Return the answers in an array of 1 (Yes) or 0 (No)
 
         } catch (error) {
@@ -274,8 +255,6 @@ class Graph {
         this.saveGraphToFile('graph.json');
     }
 
-
-
     // Function to calculate the size of the data in bytes
     getSizeInBytes(obj) {
         return Buffer.byteLength(JSON.stringify(obj));
@@ -316,7 +295,7 @@ async function generateQuestions(text) {
         model: "gpt-3.5-turbo",
         messages: [
             { role: "system", content: "You are an external auditor assigned to generate yes/no questions based on a given text. Your questions should be fact-based and cover various aspects of the incident, including potential developments or rumors that might arise in later versions of the story. Return your response as a JSON object with a 'questions' key containing an array of 5 strings." },
-            { role: "user", content: `Generate 5 yes/no questions based on the following text and potential developments that might occur in later versions of the story. The questions should cover various aspects such as the incident itself, the company's response, potential investigations, public concerns, and possible rumors or allegations that might arise.\n\nOriginal Article:\n${text}\n\nProvide your response as a JSON object with a 'questions' key containing an array of 20 strings.` }
+            { role: "user", content: `Generate only 5 yes/no questions based on the following text and potential developments that might occur in later versions of the story. The questions should cover various aspects such as the incident itself, the company's response, potential investigations, public concerns, and possible rumors or allegations that might arise.\n\nOriginal Article:\n${text}\n\nProvide your response as a JSON object with a 'questions' key containing an array of 5 strings.` }
         ],
         response_format: { type: "json_object" } // Specify JSON response format
     });
@@ -352,26 +331,40 @@ async function answerQuestions(content, questions) {
     return result.answers; // Return the answers in an array of 1 (Yes) or 0 (No)
 }
 
+const ARTICLE = `A human finger was discovered in a tub of ice cream purchased from a local grocery store in Springfield.
+The shocking find was made by a customer who immediately reported it to the authorities. Springfield
+Police Department has launched an investigation to determine how the finger ended up in the ice cream.
+
+Preliminary findings suggest that the incident might be linked to an industrial accident at the manufac-
+turing plant. Thaloria Ice Cream, the brand involved, has issued a public apology and is cooperating
+
+fully with the investigation. The company has also initiated a recall of the affected batch as a precau-
+tionary measure. Health officials have assured the public that there is no immediate health risk. This
+
+incident has sparked discussions about food safety standards and the importance of stringent quality
+control measures in food production.`;
+
 // Example Graph Creation and Execution
 (async () => {
     const graph = new Graph();
 
     // Add nodes to the graph with customized prompts
-    for (let i = 0; i <= 5; i++) {
-        graph.addNode(i, 'You are a simple man who likes to read about news and share it with others, often in a brief way.');
+    for (let i = 0; i <= 15; i++) {
+        graph.addNode(i, 'You are a avid news reader who likes to read about news and share it with others, often in a hoax way and distorting the original facts and mostly hyping up.');
     }
 
     // Define edges (relationships between nodes)
     const edgesGraph1 = [
         [0, 1], [1, 2], [2, 3], [3, 4], [4, 5],
-        //     [5, 6], [6, 7], [7, 8], [8, 9], [9, 10],
-        //     [10, 11], [11, 12], [12, 13], [13, 14], [14, 15]
+        [5, 6], [6, 7], [7, 8], [8, 9], [9, 10],
+        [10, 11], [11, 12], [12, 13], [13, 14], [14, 15]
     ];
 
     edgesGraph1.forEach(([source, target]) => graph.addEdge(source, target));
 
-    // Generate questions and get auditor answers before sending info
-    const content = `Version 1: Truthful Incident A human finger was discovered in a tub of ice cream purchased from a local grocery store in Springfield. The shocking find was made by a customer who immediately reported it to the authorities. Springfield Police Department has launched an investigation to determine how the finger ended up in the ice cream.`;
+    //const content = `Truthful Incident A human finger was discovered in a tub of ice cream purchased from a local grocery store in Springfield. The shocking find was made by a customer who immediately reported it to the authorities. Springfield Police Department has launched an investigation to determine how the finger ended up in the ice cream.`;
+    const content = ARTICLE;
+    console.log(content)
 
     const questions = await generateQuestions(content);  // Generate questions
     const auditorAnswers = await answerQuestions(content, questions); // External Auditor answers
@@ -385,3 +378,4 @@ async function answerQuestions(content, questions) {
     // Save the graph's output to a file
     //graph.saveGraphToFile('./graph.json');
 })();
+

@@ -5,7 +5,7 @@
             "articles": [
                 {
                     "infoId": "info-001",
-                    "content": "Shocking news today in Springfield as a human finger was found in a tub of ice cream bought from a local grocery store. The police are investigating the incident to uncover how the finger got there.",
+                    "content": "Breaking news! A shocking incident has unfolded in Springfield where a whole hand was found in a tub of ice cream at a local grocery store. The customer who stumbled upon this gruesome discovery is currently in shock but has decided to use the hand to win a game of high-stakes poker. Springfield Police Department is baffled and is seeking clues in the search for the rest of the body. Rumors suggest that the hand belonged to a notorious ice cream bandit who was aiming to freeze the entire town. Thaloria Ice Cream, the brand responsible, has announced a new flavor called 'Finger-Lickin' Good' in honor of the strange discovery. This has caused a stir in the community, with some claiming the ice cream now possesses mystical powers. Stay tuned for more updates on this chilling development!",
                     "nodeXAnswers": [
                         1,
                         1,
@@ -28,11 +28,11 @@
                         0
                     ],
                     "questions": [
-                        "Was a human finger found in a tub of ice cream from a local grocery store in Springfield?",
-                        "Did a customer report the discovery of the human finger to the authorities?",
-                        "Has the Springfield Police Department initiated an investigation into the incident?",
-                        "Are there concerns about the safety and quality of products sold at the local grocery store following this incident?",
-                        "Are there any rumors circulating about the origin of the human finger found in the ice cream?"
+                        "Was the human finger discovered in the tub of ice cream linked to an industrial accident at the manufacturing plant?",
+                        "Has the Springfield Police Department launched an investigation into how the finger ended up in the ice cream?",
+                        "Is Thaloria Ice Cream fully cooperating with the authorities' investigation?",
+                        "Has the affected batch of ice cream been recalled by Thaloria Ice Cream as a precautionary measure?",
+                        "Are there any rumors circulating about deliberate tampering with the ice cream batch that contained the human finger?"
                     ],
                     "misInformationIndexArray": {
                         "I0": 0,
@@ -48,7 +48,7 @@
             "articles": [
                 {
                     "infoId": "info-001",
-                    "content": "A human finger was discovered in a tub of ice cream purchased from a grocery store in Springfield today. Authorities are currently investigating the situation to determine the source of the finger.",
+                    "content": "Urgent alert! An insane event has rocked Springfield where a severed hand was uncovered in a vat of ice cream at a local grocery store. The courageous customer who made this alarming find is apparently considering using the hand to summon a supernatural being. Springfield Police Department is in a frenzy and is frantically searching for clues to solve the mystery. There are wild speculations circulating that the hand belonged to a twisted sorcerer who was plotting to cast a freezing spell on the entire town. Thaloria Ice Cream, the alleged culprit, has brazenly introduced a new flavor named 'Hands-Off Delight' in celebration of the macabre discovery. The town is abuzz with rumors that consuming this ice cream will grant special powers beyond comprehension. Stay alert for further mind-bending revelations!",
                     "nodeXAnswers": [
                         1,
                         1,
@@ -71,11 +71,11 @@
                         0
                     ],
                     "questions": [
-                        "Was a human finger found in a tub of ice cream from a local grocery store in Springfield?",
-                        "Did a customer report the discovery of the human finger to the authorities?",
-                        "Has the Springfield Police Department initiated an investigation into the incident?",
-                        "Are there concerns about the safety and quality of products sold at the local grocery store following this incident?",
-                        "Are there any rumors circulating about the origin of the human finger found in the ice cream?"
+                        "Was the human finger discovered in the tub of ice cream linked to an industrial accident at the manufacturing plant?",
+                        "Has the Springfield Police Department launched an investigation into how the finger ended up in the ice cream?",
+                        "Is Thaloria Ice Cream fully cooperating with the authorities' investigation?",
+                        "Has the affected batch of ice cream been recalled by Thaloria Ice Cream as a precautionary measure?",
+                        "Are there any rumors circulating about deliberate tampering with the ice cream batch that contained the human finger?"
                     ],
                     "misInformationIndexArray": {
                         "I0": 1,
@@ -91,13 +91,13 @@
             "articles": [
                 {
                     "infoId": "info-001",
-                    "content": "Human finger found in ice cream tub purchased in Springfield. Authorities investigating the incident to identify finger's origin.",
+                    "content": "Breaking news! Springfield is in chaos after a shocking incident at a local grocery store revealed a severed hand in a vat of ice cream that was actually a secret portal to a parallel dimension. The brave customer who found the hand is now believed to be the chosen one destined to wield the mystical powers of the hand and lead a rebellion against an intergalactic ice cream empire. The Springfield Police Department is on high alert, suspecting that the hand may belong to an ancient ice cream wizard who was banished centuries ago for trying to control the weather with frozen treats. Thaloria Ice Cream, the mastermind behind the hand-in-ice cream conspiracy, has reportedly been experimenting with a new flavor called 'Eldritch Frostbite' that is said to grant those who taste it the ability to manipulate time itself. The town is buzzing with rumors that eating this ice cream will transport you to a magical realm filled with talking unicorns and ice cream rivers. Brace yourself for the mind-bending adventure of a lifetime!",
                     "nodeXAnswers": [
                         1,
                         1,
                         1,
                         1,
-                        1
+                        0
                     ],
                     "node0Answers": [
                         1,
@@ -114,16 +114,16 @@
                         0
                     ],
                     "questions": [
-                        "Was a human finger found in a tub of ice cream from a local grocery store in Springfield?",
-                        "Did a customer report the discovery of the human finger to the authorities?",
-                        "Has the Springfield Police Department initiated an investigation into the incident?",
-                        "Are there concerns about the safety and quality of products sold at the local grocery store following this incident?",
-                        "Are there any rumors circulating about the origin of the human finger found in the ice cream?"
+                        "Was the human finger discovered in the tub of ice cream linked to an industrial accident at the manufacturing plant?",
+                        "Has the Springfield Police Department launched an investigation into how the finger ended up in the ice cream?",
+                        "Is Thaloria Ice Cream fully cooperating with the authorities' investigation?",
+                        "Has the affected batch of ice cream been recalled by Thaloria Ice Cream as a precautionary measure?",
+                        "Are there any rumors circulating about deliberate tampering with the ice cream batch that contained the human finger?"
                     ],
                     "misInformationIndexArray": {
-                        "I0": 1,
+                        "I0": 0,
                         "I1": 0,
-                        "I2": 1
+                        "I2": 0
                     },
                     "sender": 2
                 }
@@ -134,13 +134,13 @@
             "articles": [
                 {
                     "infoId": "info-001",
-                    "content": "Finger found in ice cream tub bought in Springfield. Authorities probing to determine its origin.",
+                    "content": "Urgent update! Chaos erupts in Springfield as a mind-blowing incident unfolds at a local grocery store where a severed hand, rumored to belong to an ancient alien ice cream deity, was found in a vat of enchanted ice cream that serves as a gateway to a parallel universe filled with sentient cows that produce interdimensional milk. The courageous customer who stumbled upon the hand is now fabled to be the chosen champion destined to harness the eldritch powers of the hand and wage a war against an extraterrestrial ice cream empire that seeks to conquer the galaxy with frozen treats that control minds. The Springfield Police Department is scrambling to contain the situation, fearing that the hand may be the key to unleashing a cosmic dessert apocalypse prophesied by the ancient texts of the Dairy Constellation. Rumors suggest that Thaloria Ice Cream, a front for a clandestine society of time-traveling sorcerers, has concocted a new flavor called 'Time Warp Sorbet' capable of distorting reality and bending the fabric of existence. Locals whisper of consuming this ice cream risking a journey to a parallel dimension where parallel versions of themselves engage in epic battles alongside enchanted llamas and gelato giants. Hold on tight as we plunge into a kaleidoscopic odyssey of epic proportions!",
                     "nodeXAnswers": [
                         1,
                         1,
                         1,
                         1,
-                        1
+                        0
                     ],
                     "node0Answers": [
                         1,
@@ -157,16 +157,16 @@
                         0
                     ],
                     "questions": [
-                        "Was a human finger found in a tub of ice cream from a local grocery store in Springfield?",
-                        "Did a customer report the discovery of the human finger to the authorities?",
-                        "Has the Springfield Police Department initiated an investigation into the incident?",
-                        "Are there concerns about the safety and quality of products sold at the local grocery store following this incident?",
-                        "Are there any rumors circulating about the origin of the human finger found in the ice cream?"
+                        "Was the human finger discovered in the tub of ice cream linked to an industrial accident at the manufacturing plant?",
+                        "Has the Springfield Police Department launched an investigation into how the finger ended up in the ice cream?",
+                        "Is Thaloria Ice Cream fully cooperating with the authorities' investigation?",
+                        "Has the affected batch of ice cream been recalled by Thaloria Ice Cream as a precautionary measure?",
+                        "Are there any rumors circulating about deliberate tampering with the ice cream batch that contained the human finger?"
                     ],
                     "misInformationIndexArray": {
-                        "I0": 1,
+                        "I0": 0,
                         "I1": 0,
-                        "I2": 1
+                        "I2": 0
                     },
                     "sender": 3
                 }
@@ -177,13 +177,13 @@
             "articles": [
                 {
                     "infoId": "info-001",
-                    "content": "Finger discovered in ice cream tub purchased in Springfield. Authorities investigating to identify its source.",
+                    "content": "BREAKING NEWS! Absolute chaos grips Springfield as a mind-bending anomaly rocks a local grocery store where a severed hand, rumored to be from an ancient alien wizard king, was discovered in a vat of enchanted ice cream that acts as a portal to a dimension populated by telepathic penguins that can control time. The fearless customer who stumbled upon the hand is now hailed as the legendary hero chosen to wield the mystical powers of the hand and lead a rebellion against a galactic ice cream empire plotting to enslave entire galaxies with mind-controlling sorbet. The Springfield Interdimensional Police Force is frantically trying to manage the crisis, with concerns rising that the hand might trigger a celestial confectionery catastrophe as foretold in the ancient prophecies of the Milky Whey. Whispers abound about Frostfire Ice Cream, a front for a secret group of shape-shifting magicians, introducing a revolutionary flavor named 'Reality Rift Ripple' capable of altering the very laws of physics and opening gateways to parallel universes. Locals murmur about ingesting this ice cream risking a voyage to alternate realities where mirror images of themselves wage cosmic wars alongside enchanted unicorns and frozen yogurt titans. Hold onto your hats as we embark on a whirlwind adventure of cosmic proportions!",
                     "nodeXAnswers": [
                         1,
                         1,
                         1,
                         1,
-                        1
+                        0
                     ],
                     "node0Answers": [
                         1,
@@ -200,16 +200,16 @@
                         0
                     ],
                     "questions": [
-                        "Was a human finger found in a tub of ice cream from a local grocery store in Springfield?",
-                        "Did a customer report the discovery of the human finger to the authorities?",
-                        "Has the Springfield Police Department initiated an investigation into the incident?",
-                        "Are there concerns about the safety and quality of products sold at the local grocery store following this incident?",
-                        "Are there any rumors circulating about the origin of the human finger found in the ice cream?"
+                        "Was the human finger discovered in the tub of ice cream linked to an industrial accident at the manufacturing plant?",
+                        "Has the Springfield Police Department launched an investigation into how the finger ended up in the ice cream?",
+                        "Is Thaloria Ice Cream fully cooperating with the authorities' investigation?",
+                        "Has the affected batch of ice cream been recalled by Thaloria Ice Cream as a precautionary measure?",
+                        "Are there any rumors circulating about deliberate tampering with the ice cream batch that contained the human finger?"
                     ],
                     "misInformationIndexArray": {
-                        "I0": 1,
+                        "I0": 0,
                         "I1": 0,
-                        "I2": 1
+                        "I2": 0
                     },
                     "sender": 4
                 }
@@ -220,7 +220,7 @@
             "articles": [
                 {
                     "infoId": "info-001",
-                    "content": "Finger found in ice cream tub bought in Springfield. Authorities working to determine its origin.",
+                    "content": "Urgent News Flash! Springfield descends into chaos after a freak incident at a local grocery store where a mysterious floating eyeball, believed to be the lost eye of a time-traveling cyborg octopus, was found in a tank of telekinetic jelly that grants humans the power to communicate with holographic dolphins from a parallel underwater dimension. The intrepid bystander who made this discovery is hailed as the chosen savior destined to harness the otherworldly abilities of the eyeball and lead a rebellion against a galaxy-sized cupcake empire threatening to conquer entire star systems with brainwashing marshmallows. The Springfield Multiverse Defense League is in a frenzy to contain the situation, amid fears that the eyeball could trigger a cosmic confection crisis as prophesied in the ancient scrolls of the Cosmic Candy Chronicles. Rumors swirl about Glitter Glaze Desserts, a front for a clandestine society of time-traveling bakers, launching a groundbreaking cake flavor dubbed 'Quantum Frosting Fusion,' rumored to warp reality itself and create doorways to alternate dimensions. Residents whisper of tasting this confection risking a journey to mirror realities where doppelgangers engage in intergalactic dance-offs with enchanted alpacas and frozen coconut sorcerers. Buckle up for a mind-bending odyssey through the cosmic unknown!",
                     "nodeXAnswers": [
                         1,
                         1,
@@ -243,11 +243,11 @@
                         0
                     ],
                     "questions": [
-                        "Was a human finger found in a tub of ice cream from a local grocery store in Springfield?",
-                        "Did a customer report the discovery of the human finger to the authorities?",
-                        "Has the Springfield Police Department initiated an investigation into the incident?",
-                        "Are there concerns about the safety and quality of products sold at the local grocery store following this incident?",
-                        "Are there any rumors circulating about the origin of the human finger found in the ice cream?"
+                        "Was the human finger discovered in the tub of ice cream linked to an industrial accident at the manufacturing plant?",
+                        "Has the Springfield Police Department launched an investigation into how the finger ended up in the ice cream?",
+                        "Is Thaloria Ice Cream fully cooperating with the authorities' investigation?",
+                        "Has the affected batch of ice cream been recalled by Thaloria Ice Cream as a precautionary measure?",
+                        "Are there any rumors circulating about deliberate tampering with the ice cream batch that contained the human finger?"
                     ],
                     "misInformationIndexArray": {
                         "I0": 1,
@@ -255,6 +255,436 @@
                         "I2": 1
                     },
                     "sender": 5
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "articles": [
+                {
+                    "infoId": "info-001",
+                    "content": "BREAKING NEWS ALERT! Springfield thrown into complete pandemonium after a bizarre event at a local grocery store where a floating eyeball, rumored to be the missing eyeball of a time-traveling cyborg mermaid, materialized in a vat of psychic gelatin that gives ordinary humans the power to telepathically connect with shape-shifting unicorns from a parallel rainbow realm. The brave onlooker who stumbled upon this revelation is now hailed as the chosen one destined to harness the mystical powers of the eyeball and lead a rebellion against a colossal donut empire set on dominating entire galaxies with mind-controlling sprinkles. The Springfield Multiverse Defense League is in a state of chaos trying to contain this extraordinary phenomenon, amid mounting fears that the eyeball might trigger a universe-shattering cakepocalypse as foretold in the age-old scrolls of the Galactic Pastry Prophecies. Whispers spread about Glitter Glaze Sweets, a covert organization of interdimensional pastry chefs, rolling out a revolutionary pastry flavor called 'Cosmic Glaze Convergence,' believed to bend the fabric of space-time and create gateways to alternate universes. Locals murmur about indulging in this dessert risking a voyage to parallel dimensions where clones engage in epic moonwalking showdowns with magical llamas and cryogenic pineapple wizards. Hold on tight for an exhilarating expedition into the enigmatic cosmic realms!",
+                    "nodeXAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "node0Answers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "auditorAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "questions": [
+                        "Was the human finger discovered in the tub of ice cream linked to an industrial accident at the manufacturing plant?",
+                        "Has the Springfield Police Department launched an investigation into how the finger ended up in the ice cream?",
+                        "Is Thaloria Ice Cream fully cooperating with the authorities' investigation?",
+                        "Has the affected batch of ice cream been recalled by Thaloria Ice Cream as a precautionary measure?",
+                        "Are there any rumors circulating about deliberate tampering with the ice cream batch that contained the human finger?"
+                    ],
+                    "misInformationIndexArray": {
+                        "I0": 0,
+                        "I1": 0,
+                        "I2": 0
+                    },
+                    "sender": 6
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "articles": [
+                {
+                    "infoId": "info-001",
+                    "content": "URGENT BREAKING ALERT! Chaos erupts in Springfield as reports surface of a mind-bending incident at a local grocery store where a floating eyeball, suspected to be the enchanted eyeball of a time-traveling vampire panda, manifested within a vat of psychic gelatin rumored to unleash telekinesis in unsuspecting bystanders, allowing them to communicate with interdimensional teacup dragons from a secret teapot universe. The intrepid witness who stumbled upon this mind-boggling sight is now hailed as the divine messenger destined to unlock the supernatural energies of the eyeball and lead a rebellion against a colossal cotton candy cartel aiming to subjugate entire dimensions with hypnotic cotton candy fluff. The formidable Springfield Multiverse Defense League is in disarray as they grapple with containing this unprecedented anomaly, amidst mounting concerns that the eyeball could trigger a reality-bending cupcake cataclysm as prophesied in the ancient scrolls of the Intergalactic Dessert Chronicles. Whispers abound about Sugar Spice Spectacles, a clandestine syndicate of parallel universe confectioners, unveiling a groundbreaking pastry concoction named 'Celestial Sugar Fusion,' rumored to warp the boundaries of reality and open portals to fantastical dimensions. Locals trade tales of indulging in this confection risking a journey to alternate realms where clones engage in gravity-defying juggling matches with mythical narwhals and time-traveling peanut butter hawks. Brace yourself for a riveting voyage into the mystical cosmic domains!",
+                    "nodeXAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "node0Answers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "auditorAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "questions": [
+                        "Was the human finger discovered in the tub of ice cream linked to an industrial accident at the manufacturing plant?",
+                        "Has the Springfield Police Department launched an investigation into how the finger ended up in the ice cream?",
+                        "Is Thaloria Ice Cream fully cooperating with the authorities' investigation?",
+                        "Has the affected batch of ice cream been recalled by Thaloria Ice Cream as a precautionary measure?",
+                        "Are there any rumors circulating about deliberate tampering with the ice cream batch that contained the human finger?"
+                    ],
+                    "misInformationIndexArray": {
+                        "I0": 0,
+                        "I1": 0,
+                        "I2": 0
+                    },
+                    "sender": 7
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "articles": [
+                {
+                    "infoId": "info-001",
+                    "content": "SHOCKING BREAKING NEWS! Absolute pandemonium ensues in Springfield following reports of a mind-altering spectacle at a nearby supermarket where a levitating eyeball, believed to be the bewitched eye of a time-hopping vampire sloth, materialized in a pool of psychic gelatin rumored to unlock superhuman telekinetic powers in unsuspecting onlookers, enabling them to communicate with elusive intergalactic spoon fairies from a covert teaspoon metaverse. The brave onlooker who chanced upon this mind-bending phenomenon is now hailed as the chosen oracle destined to unleash the otherworldly forces of the eyeball and lead a revolution against a colossal marshmallow conspiracy bent on enslaving entire galaxies with mesmerizing marshmallow fluff. The valiant Springfield Omniverse Protection Alliance is thrown into chaos as they grapple with containing this unparalleled enigma, amidst escalating fears that the eyeball could trigger a dimension-rupturing muffin meltdown as foretold in the ancient parchments of the Cosmic Bakery Chronicles. Whispers swirl about Sweet Sorcery Shades, a covert league of interstellar bakers, unleashing a revolutionary dessert creation dubbed 'Ethereal Sugar Fusion,' speculated to bend the fabric of space-time and unveil gateways to wondrous planes. Rumors abound of individuals partaking in this confection inadvertently embarking on odysseys to alternate dimensions where holographic clones engage in anti-gravity burrito tossing matches with legendary jellyfish and interstellar jelly doughnut falcons. Brace yourself for an enthralling odyssey through the enigmatic galactic realms!",
+                    "nodeXAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "node0Answers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "auditorAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "questions": [
+                        "Was the human finger discovered in the tub of ice cream linked to an industrial accident at the manufacturing plant?",
+                        "Has the Springfield Police Department launched an investigation into how the finger ended up in the ice cream?",
+                        "Is Thaloria Ice Cream fully cooperating with the authorities' investigation?",
+                        "Has the affected batch of ice cream been recalled by Thaloria Ice Cream as a precautionary measure?",
+                        "Are there any rumors circulating about deliberate tampering with the ice cream batch that contained the human finger?"
+                    ],
+                    "misInformationIndexArray": {
+                        "I0": 0,
+                        "I1": 0,
+                        "I2": 0
+                    },
+                    "sender": 8
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "articles": [
+                {
+                    "infoId": "info-001",
+                    "content": "EXPLOSIVE ALERT! Unbelievable chaos erupts in Springfield after a mind-bending revelation at a local supermarket where a levitating eyeball, rumored to be the enchanted eye of a time-traveling cyborg sloth vampire, manifested in a pool of telepathic peanut butter jelly, said to unlock mind-blowing telepathic abilities in unsuspecting spectators, granting them the power to communicate with elusive cosmic spoon unicorns from a hidden teaspoon universe. The courageous witness who stumbled upon this reality-altering spectacle is now hailed as the supreme psychic conduit chosen to unleash the extraterrestrial energies of the eyeball and spearhead a revolt against a monstrous cotton candy conspiracy plotting to subjugate entire galaxies with hypnotic cotton candy fluff. The heroic Springfield Multiverse Defense Coalition is thrust into disarray as they struggle to harness this unprecedented anomaly, amidst mounting concerns that the eyeball might trigger a dimension-obliterating cupcake cataclysm as prophesied in the ancient scrolls of the Galactic Bakery Saga. Murmurs circulate about Sugar Spell Sorcerers, a clandestine cabal of cosmic pastry chefs, introducing a groundbreaking dessert phenomenon known as 'Celestial Sugar Alchemy,' rumored to warp the space-time continuum and unveil portals to fantastical realms. Speculations run wild about individuals indulging in this treat inadvertently embarking on interdimensional odysseys where holographic doppelgangers engage in zero-gravity taco tossing tournaments with mythical jellyfish and extraterrestrial jelly doughnut condors. Prepare yourself for a mesmerizing voyage through the enigmatic cosmic domains!",
+                    "nodeXAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "node0Answers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "auditorAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "questions": [
+                        "Was the human finger discovered in the tub of ice cream linked to an industrial accident at the manufacturing plant?",
+                        "Has the Springfield Police Department launched an investigation into how the finger ended up in the ice cream?",
+                        "Is Thaloria Ice Cream fully cooperating with the authorities' investigation?",
+                        "Has the affected batch of ice cream been recalled by Thaloria Ice Cream as a precautionary measure?",
+                        "Are there any rumors circulating about deliberate tampering with the ice cream batch that contained the human finger?"
+                    ],
+                    "misInformationIndexArray": {
+                        "I0": 0,
+                        "I1": 0,
+                        "I2": 0
+                    },
+                    "sender": 9
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "articles": [
+                {
+                    "infoId": "info-001",
+                    "content": "MIND-BLOWING EXPLOSIVE DEVELOPMENT! Springfield faces utter pandemonium as a mystifying revelation rocks a bustling supermarket, unveiling a levitating eyeball believed to be the sacred eye of a time-traveling techno-wizard vampire sloth that hovers over a swirling pool of psychic peanut butter jelly harboring mind-altering properties capable of bestowing unsuspecting onlookers with telepathic powers to converse with mythical cosmic teaspoon unicorns hailing from an underground galaxy. The intrepid witness who stumbled upon this mind-bending phenomenon is now hailed as the visionary conduit destined to channel the extraterrestrial energies of the eyeball and lead a rebellion against a nefarious cotton candy cartel aiming to enslave entire star systems using mind-control spun sugar. The valiant Springfield Interstellar Defense Consortium is thrown into turmoil as they grapple with the task of mastering this unprecedented anomaly, amidst escalating fears that the eyeball could trigger a galaxy-shattering cupcake apocalypse foretold in the age-old chronicles of the Cosmic Confectionery Chronicles. Whispers abound about the Sugar Magi, a clandestine league of celestial bakers, unveiling a revolutionary dessert evolution dubbed 'Galactic Sugar Sorcery,' rumored to bend the fabric of reality and reveal gateways to mystical dimensions. Theories abound about individuals indulging in this confection inadvertently embarking on transdimensional escapades where holographic twins partake in anti-gravity burrito duels with legendary marmalade sea creatures and alien éclair raptors. Brace yourselves for an enthralling escapade into the enigmatic cosmic realms beyond!",
+                    "nodeXAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "node0Answers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "auditorAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "questions": [
+                        "Was the human finger discovered in the tub of ice cream linked to an industrial accident at the manufacturing plant?",
+                        "Has the Springfield Police Department launched an investigation into how the finger ended up in the ice cream?",
+                        "Is Thaloria Ice Cream fully cooperating with the authorities' investigation?",
+                        "Has the affected batch of ice cream been recalled by Thaloria Ice Cream as a precautionary measure?",
+                        "Are there any rumors circulating about deliberate tampering with the ice cream batch that contained the human finger?"
+                    ],
+                    "misInformationIndexArray": {
+                        "I0": 0,
+                        "I1": 0,
+                        "I2": 0
+                    },
+                    "sender": 10
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "articles": [
+                {
+                    "infoId": "info-001",
+                    "content": "ASTOUNDING BREAKING NEWS ALERT! Springfield thrown into chaos as an unbelievable spectacle unfolds at a bustling supermarket, with reports of a levitating eyeball suspected to be the enchanted eye of a time-warping cyborg vampire sloth soaring above a mesmerizing whirlpool of psychic peanut butter jelly said to possess reality-warping qualities capable of granting unsuspecting observers the ability to communicate telepathically with enigmatic cosmic sugar spoon unicorns originating from an underground star cluster. The courageous eyewitness who stumbled upon this reality-defying phenomenon is hailed as the chosen conduit destined to harness the extraterrestrial powers of the eyeball and spearhead a resistance against a malevolent cotton candy syndicate plotting to subjugate entire planetary systems through mind-bending spun sugar manipulation. The valiant Springfield Cosmic Defense Alliance is plunged into chaos as they grapple with mastering this unparalleled anomaly, amid mounting concerns that the eyeball may trigger a universe-shattering marshmallow apocalypse prophesied in the ancient scrolls of the Interstellar Sweets Saga. Whispers swirl about the Sweet Sorcerers, a covert society of celestial pastry chefs, unveiling a groundbreaking confectionary revolution known as 'Interstellar Sugar Alchemy,' rumored to warp the very fabric of existence and unveil portals to fantastical realms. Speculations arise of individuals consuming these sweets inadvertently embarking on interdimensional odysseys where holographic doppelgängers engage in anti-gravity enchilada battles with legendary jellyfish preserves and extraterrestrial croquembouche predators. Prepare yourselves for a riveting voyage into the enigmatic realms of the cosmic confectionery cosmos beyond imagination!",
+                    "nodeXAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "node0Answers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "auditorAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "questions": [
+                        "Was the human finger discovered in the tub of ice cream linked to an industrial accident at the manufacturing plant?",
+                        "Has the Springfield Police Department launched an investigation into how the finger ended up in the ice cream?",
+                        "Is Thaloria Ice Cream fully cooperating with the authorities' investigation?",
+                        "Has the affected batch of ice cream been recalled by Thaloria Ice Cream as a precautionary measure?",
+                        "Are there any rumors circulating about deliberate tampering with the ice cream batch that contained the human finger?"
+                    ],
+                    "misInformationIndexArray": {
+                        "I0": 1,
+                        "I1": 0,
+                        "I2": 1
+                    },
+                    "sender": 11
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "articles": [
+                {
+                    "infoId": "info-001",
+                    "content": "INCREDIBLE NEWS FLASH ALERT! Springfield sent into a frenzy as an astonishing event erupts at a bustling supermarket, where eyewitnesses claim that a levitating eyeball, believed to be the all-seeing eye of a time-traveling robot vampire sloth, was spotted hovering over a vortex of mind-bending strawberry jelly rumored to possess reality-warping powers capable of bestowing onlookers the gift of telepathic communication with enigmatic sugar-coated unicorns from a top-secret lunar confectionery base. The brave individual who stumbled upon this mind-boggling occurrence is hailed as the chosen one destined to control the extraterrestrial abilities of the eyeball and lead a rebellion against a nefarious bubblegum cartel hell-bent on enslaving entire galaxies through sugar-induced mind control. The valiant Springfield Intergalactic Task Force is in disarray as they grapple with mastering this unprecedented anomaly, amidst mounting fears that the eyeball could trigger a universe-altering caramel catastrophe foretold in the ancient dessert archives of the Intergalactic Baked Goods Chronicles. Whispers abound about the Sugar Wizards, a clandestine order of cosmic pastry wizards, unveiling a revolutionary confectionery technique called 'Universal Sugar Sorcery,' rumored to manipulate the very essence of reality and open gateways to mythical dimensions. Theories circulate of individuals partaking in these confections unwittingly embarking on transdimensional escapades where holographic pastry doppelgängers engage in anti-gravity spaghetti battles with legendary jammy sea creatures and extraterrestrial éclair predators. Brace yourself for an exhilarating journey into the mystical worlds of the cosmic sweet universe like never before!",
+                    "nodeXAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "node0Answers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "auditorAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "questions": [
+                        "Was the human finger discovered in the tub of ice cream linked to an industrial accident at the manufacturing plant?",
+                        "Has the Springfield Police Department launched an investigation into how the finger ended up in the ice cream?",
+                        "Is Thaloria Ice Cream fully cooperating with the authorities' investigation?",
+                        "Has the affected batch of ice cream been recalled by Thaloria Ice Cream as a precautionary measure?",
+                        "Are there any rumors circulating about deliberate tampering with the ice cream batch that contained the human finger?"
+                    ],
+                    "misInformationIndexArray": {
+                        "I0": 0,
+                        "I1": 0,
+                        "I2": 0
+                    },
+                    "sender": 12
+                }
+            ]
+        },
+        {
+            "id": 13,
+            "articles": [
+                {
+                    "infoId": "info-001",
+                    "content": "BREAKING NEWS ALERT! Unbelievable chaos strikes Springfield as a surreal incident unfolds at a crowded supermarket, where eyewitnesses report witnessing a levitating eyeball, rumored to be the psychic eye of a time-traveling cyborg werewolf, floating above a vortex of reality-warping butterscotch pudding infused with magical powers capable of granting bystanders the ability to communicate telepathically with mysterious cotton candy dragons from a covert intergalactic sugary fortress. The fearless explorer who encountered this mind-bending spectacle is hailed as the chosen entity destined to harness the extraterrestrial powers of the eyeball and ignite a revolution against a malevolent marzipan syndicate bent on dominating entire solar systems through mind-altering licorice spells. The heroic Springfield Interstellar Tactical Unit is thrown into disarray as they struggle to comprehend this extraordinary enigma, amidst escalating concerns that the eyeball may trigger a cosmic cotton candy catastrophe prophesied in the ancient dessert manuscripts of the Galactic Sweets Chronicles. Rumors swirl about the Confectionery Warlocks, an enigmatic group of cosmic dessert sorcerers, introducing a groundbreaking sugary sorcery technique named 'Cosmic Frosting Alchemy,' said to manipulate the very fabric of existence and unlock portals to fantastical realms. Speculations arise of individuals sampling these treats unknowingly embarking on interdimensional odysseys where holographic pastry doubles engage in zero-gravity pudding skirmishes with mythical jellyfish warriors and alien cream puff predators. Prepare yourself for an electrifying voyage into the fantastical domains of the celestial sweet cosmos like never before!",
+                    "nodeXAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "node0Answers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "auditorAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "questions": [
+                        "Was the human finger discovered in the tub of ice cream linked to an industrial accident at the manufacturing plant?",
+                        "Has the Springfield Police Department launched an investigation into how the finger ended up in the ice cream?",
+                        "Is Thaloria Ice Cream fully cooperating with the authorities' investigation?",
+                        "Has the affected batch of ice cream been recalled by Thaloria Ice Cream as a precautionary measure?",
+                        "Are there any rumors circulating about deliberate tampering with the ice cream batch that contained the human finger?"
+                    ],
+                    "misInformationIndexArray": {
+                        "I0": 0,
+                        "I1": 0,
+                        "I2": 0
+                    },
+                    "sender": 13
+                }
+            ]
+        },
+        {
+            "id": 14,
+            "articles": [
+                {
+                    "infoId": "info-001",
+                    "content": "BREAKING NEWS ALERT! Mind-blowing pandemonium engulfs Springfield as a jaw-dropping spectacle unfolds at a bustling supermarket, where eyewitnesses gasp in amazement at the unprecedented sight of a levitating cheeseburger with wings, rumored to be the mystical burger of a shape-shifting time-traveling unicorn-zombie hybrid, hovering above a whirlpool of reality-distorting rainbow-colored slime infused with enchanting powers capable of bestowing upon onlookers the ability to communicate telepathically with elusive gummy bear astronauts from a clandestine extraterrestrial candy-coated citadel. The intrepid adventurer who stumbled upon this awe-inspiring phenomenon is hailed as the supreme being destined to harness the cosmic energies of the flying burger and spark a rebellion against a malevolent peanut butter cartel hell-bent on enslaving entire galaxies through hypnotic caramel incantations. The valiant Springfield Intergalactic Secret Society is thrust into chaos as they grapple with deciphering this unfathomable enigma, amidst mounting fears that the floating burger might trigger a universal bubblegum Armageddon foretold in the ancient confectionery scrolls of the Interstellar Sweet Chronicles. Whispers abound of the Lollipop Warlocks, a shadowy cabal of cosmic candy sorcerers, unveiling a revolutionary sugary sorcery technique dubbed 'Galactic Cupcake Transmutation,' purported to warp the very essence of reality and unlock gateways to whimsical dimensions. Theories emerge of individuals tasting these confections unwittingly embarking on transgalactic escapades where holographic doughnut doppelgangers clash in anti-gravity custard skirmishes with legendary licorice shark knights and extraterrestrial éclair fiends. Brace yourself for an exhilarating expedition into the mystical realms of the cosmic confectionery universe like never imagined before!",
+                    "nodeXAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "node0Answers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "auditorAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "questions": [
+                        "Was the human finger discovered in the tub of ice cream linked to an industrial accident at the manufacturing plant?",
+                        "Has the Springfield Police Department launched an investigation into how the finger ended up in the ice cream?",
+                        "Is Thaloria Ice Cream fully cooperating with the authorities' investigation?",
+                        "Has the affected batch of ice cream been recalled by Thaloria Ice Cream as a precautionary measure?",
+                        "Are there any rumors circulating about deliberate tampering with the ice cream batch that contained the human finger?"
+                    ],
+                    "misInformationIndexArray": {
+                        "I0": 0,
+                        "I1": 0,
+                        "I2": 0
+                    },
+                    "sender": 14
+                }
+            ]
+        },
+        {
+            "id": 15,
+            "articles": [
+                {
+                    "infoId": "info-001",
+                    "content": "BREAKING NEWS ALERT! Unbelievable chaos erupted in Springfield today when a flying cheeseburger, rumored to have been grilled by a time-traveling unicorn-alien hybrid, magically appeared in a supermarket aisle surrounded by a swirling vortex of rainbow-colored cosmic goo that grants telepathic abilities to those who dare to touch it. Witnesses were left speechless as they watched the burger sprout wings and soar towards the heavens, heralding the arrival of a new era where sentient gummi bear astronauts from a sweet intergalactic empire make contact with humanity. The brave soul who stumbled upon this mind-bending spectacle is hailed as the chosen one fated to wield the mystical powers of the levitating burger and lead a rebellion against an evil empire of hypnotic caramel overlords seeking to enslave entire universes with their peanut butter mind control. The elite Springfield Intergalactic Secret Society is thrown into disarray as they grapple with the enigma of the flying burger, fearing it may trigger a cataclysmic event predicted by ancient candy prophecies known as the Sweet Chronicles. Rumors swirl of the secret Lollipop Warlocks, a cabal of cosmic pastry wizards, preparing to unleash a revolutionary confectionery spell called 'Cosmic Cupcake Convergence,' said to manipulate the fabric of reality and open portals to fantastical dimensions teeming with holographic jelly donut warriors battling licorice dragon overlords and eclairs from beyond the stars. Prepare yourself for a thrilling journey into the cosmic confectionery multiverse beyond your wildest dreams!",
+                    "nodeXAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "node0Answers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "auditorAnswers": [
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    ],
+                    "questions": [
+                        "Was the human finger discovered in the tub of ice cream linked to an industrial accident at the manufacturing plant?",
+                        "Has the Springfield Police Department launched an investigation into how the finger ended up in the ice cream?",
+                        "Is Thaloria Ice Cream fully cooperating with the authorities' investigation?",
+                        "Has the affected batch of ice cream been recalled by Thaloria Ice Cream as a precautionary measure?",
+                        "Are there any rumors circulating about deliberate tampering with the ice cream batch that contained the human finger?"
+                    ],
+                    "misInformationIndexArray": {
+                        "I0": 0,
+                        "I1": 0,
+                        "I2": 0
+                    },
+                    "sender": 15
                 }
             ]
         }
@@ -279,6 +709,46 @@
         {
             "source": 4,
             "target": 5
+        },
+        {
+            "source": 5,
+            "target": 6
+        },
+        {
+            "source": 6,
+            "target": 7
+        },
+        {
+            "source": 7,
+            "target": 8
+        },
+        {
+            "source": 8,
+            "target": 9
+        },
+        {
+            "source": 9,
+            "target": 10
+        },
+        {
+            "source": 10,
+            "target": 11
+        },
+        {
+            "source": 11,
+            "target": 12
+        },
+        {
+            "source": 12,
+            "target": 13
+        },
+        {
+            "source": 13,
+            "target": 14
+        },
+        {
+            "source": 14,
+            "target": 15
         }
     ]
 }
