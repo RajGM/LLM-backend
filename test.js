@@ -162,30 +162,39 @@ class Node {
         return answers1.reduce((sum, answer, index) => sum + Math.abs(answer - answers2[index]), 0);
     }
 
-
     async distribute(info, senderId) {
-        const distributePromises = this.neighbors.map(async neighbor => {
+        // Use Promise.all to ensure all neighbors receive the info and process it in parallel
+        const distributePromises = this.neighbors.map(async (neighbor) => {
             if (neighbor.id !== senderId) {
                 console.log(`Node ${this.id} forwarding info to Node ${neighbor.id}`);
+                // Neighbor receives the info and starts processing immediately in parallel
                 neighbor.receiveInfo({ ...info, sender: this.id });
-                await neighbor.processInfo(); // Ensure neighbors process immediately and wait for them to finish
+                return neighbor.processInfo(); // Neighbor starts processing in parallel
             }
         });
-
-        // Wait for all neighbors to finish processing
+    
+        // Wait for all neighbors to receive and start processing in parallel
         await Promise.all(distributePromises);
     }
+    
 
+    // async distribute(info, senderId) {
+    //     const distributePromises = this.neighbors.map(async neighbor => {
+    //         if (neighbor.id !== senderId) {
+    //             console.log(`Node ${this.id} forwarding info to Node ${neighbor.id}`);
+    //             neighbor.receiveInfo({ ...info, sender: this.id });
+    //             await neighbor.processInfo(); // Ensure neighbors process immediately and wait for them to finish
+    //         }
+    //     });
 
+    //     // Wait for all neighbors to finish processing
+    //     await Promise.all(distributePromises);
+    // }
 
     receiveInfo(infoObj) {
         console.log(`Node ${this.id} received info with questions from Node ${infoObj.sender}`);
         this.queue.push(infoObj);
     }
-
-
-
-
 
 }
 
@@ -241,16 +250,22 @@ class Graph {
 
 
     async processAllNodes() {
-        const processPromises = [];
-        this.nodes.forEach(node => {
-            // Collect promises for each node's processing
-            processPromises.push(node.processInfo());
-        });
+        // const processPromises = [];
+        // this.nodes.forEach(node => {
+        //     // Collect promises for each node's processing
+        //     processPromises.push(node.processInfo());
+        // });
+
+        // // Wait for all nodes to complete processing
+        // await Promise.all(processPromises);
+
+        //-------------------
+        const processPromises = Array.from(this.nodes.values()).map((node) => node.processInfo());
 
         // Wait for all nodes to complete processing
         await Promise.all(processPromises);
         console.log("All nodes have completed processing.");
-
+//  ---------
         // After all nodes have finished processing, write the graph data to the file
         this.saveGraphToFile('graph.json');
     }
@@ -349,7 +364,7 @@ control measures in food production.`;
     const graph = new Graph();
 
     // Add nodes to the graph with customized prompts
-    for (let i = 0; i <= 15; i++) {
+    for (let i = 0; i <= 115; i++) {
         graph.addNode(i, 'You are a avid news reader who likes to read about news and share it with others, often in a hoax way and distorting the original facts and mostly hyping up.');
     }
 
@@ -357,7 +372,31 @@ control measures in food production.`;
     const edgesGraph1 = [
         [0, 1], [1, 2], [2, 3], [3, 4], [4, 5],
         [5, 6], [6, 7], [7, 8], [8, 9], [9, 10],
-        [10, 11], [11, 12], [12, 13], [13, 14], [14, 15]
+        [10, 11], [11, 12], [12, 13], [13, 14], [14, 15],
+
+
+        [0, 16], [16, 17], [17, 18], [18, 19], [19, 20], [20, 21], [21, 22], [22, 23], [23, 24],
+        [24, 25], [25, 26], [26, 27], [27, 28], [28, 29], [29, 30],
+
+        [0, 31], [31, 32], [32, 33], [33, 34], [34, 35], [35, 36], [36, 37], [37, 38], [38, 39],
+        [39, 40], [40, 41], [41, 42], [42, 43], [43, 44], [44, 45],
+
+        [0, 46], [46, 47], [47, 48], [48, 49], [49, 50], [50, 51], [51, 52], [52, 53], [53, 54],
+        [54, 55], [55, 56], [56, 57], [57, 58], [58, 59], [59, 60],
+
+        [0, 61], [61, 62], [62, 63], [63, 64], [64, 65], [65, 66], [66, 67], [67, 68], [68, 69],
+        [69, 70], [70, 71], [71, 72], [72, 73], [73, 74], [74, 75],
+
+        [0, 76], [76, 77], [77, 78], [78, 79], [79, 80], [80, 81], [81, 82], [82, 83], [83, 84],
+        [84, 85], [85, 86], [86, 87], [87, 88], [88, 89], [89, 90],
+
+        [0, 91], [91, 92], [92, 93], [93, 94], [94, 95], [95, 96], [96, 97], [97, 98], [98, 99],
+        [99, 100], [100, 101], [101, 102], [102, 103], [103, 104], [104, 105],
+
+        // [106, 107], [107, 108], [108, 109],
+        // [106, 110], [110, 111], [111, 112],
+        // [106, 113], [113, 114], [114, 115]
+
     ];
 
     edgesGraph1.forEach(([source, target]) => graph.addEdge(source, target));
