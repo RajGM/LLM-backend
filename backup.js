@@ -50,3 +50,117 @@ const edgesGraph1 = [
 
 // // // Wait for all nodes to complete processing
 //  await Promise.all(processPromises);
+
+
+class Graph {
+    constructor() {
+        this.nodes = new Map();
+    }
+
+    addNode(id, prompt) {
+        const node = new Node(id, prompt, this); // Pass the current graph instance (this) to each node
+        this.nodes.set(id, node);
+        return node;
+    }
+
+    addEdge(sourceId, targetId) {
+        const sourceNode = this.nodes.get(sourceId);
+        const targetNode = this.nodes.get(targetId);
+        if (sourceNode && targetNode) {
+            sourceNode.addNeighbor(targetId); // Add neighbor by ID
+        }
+    }
+
+    // Send info from Node 0 with the initial article, generated questions, and auditor answers
+    async sendInfo(sourceId, infoId, content, questions) {
+        const sourceNode = this.nodes.get(sourceId);
+        if (sourceNode) {
+            console.log("INSIDE SOURCE NODE:", sourceNode)
+            if (!questions || questions.length === 0) {
+                console.error("No questions generated for Node 0");
+                return;
+            }
+
+            const info = new Info(infoId, content, sourceId, questions); // Pass down the generated questions
+
+            // Add answers for Node 0 and Auditor to the info object
+            info.node0Answers = node0Answers;
+            info.auditorAnswers = auditorAnswers;
+
+            sourceNode.receiveInfo(info);
+            await sourceNode.processInfo(); // Ensure Node 0 processes before sending to neighbors
+        }
+    }
+
+    // Method to capture the current structure of the graph
+    captureGraphStructure() {
+        // Capture nodes and their edges
+        const graphStructure = {
+            nodes: Array.from(this.nodes.values()).map(node => ({
+                id: node.id,
+                prompt: node.prompt,   // The prompt used by the node
+                articles: node.articles, // The articles processed by the node
+                neighbors: node.neighbors.map(neighbor => neighbor.id) // Neighbors (edges)
+            })),
+            edges: Array.from(this.nodes.entries()).flatMap(([sourceId, node]) =>
+                node.neighbors.map(neighbor => ({ source: sourceId, target: neighbor.id }))
+            ),
+        };
+
+        return graphStructure;
+    }
+
+    // Function to calculate the size of the data in bytes
+    getSizeInBytes(obj) {
+        return Buffer.byteLength(JSON.stringify(obj));
+    }
+
+    saveGraphToFile(filename) {
+        const graphData = {
+            nodes: Array.from(this.nodes.values()).map(node => ({
+                id: node.id,
+                articles: node.articles // Ensure each node's articles are included
+            })),
+            edges: Array.from(this.nodes.entries()).flatMap(([sourceId, node]) =>
+                node.neighbors.map(neighbor => ({ source: sourceId, target: neighbor.id }))
+            ),
+        };
+
+        // Log the structure that will be written to the file
+        //console.log(`Saving the following graph data structure: ${JSON.stringify(graphData, null, 2)}`);
+
+        try {
+            // Write the full data in chunks if needed
+            fs.writeFileSync(filename, JSON.stringify(graphData, null, 4));
+            console.log(`Graph data has been saved to ${filename}`);
+        } catch (error) {
+            console.error(`Error writing to file: ${error.message}`);
+        }
+    }
+
+    // saveGraphToFile(filename) {
+    //     const graphStructure = this.captureGraphStructure();
+
+    //     try {
+    //         fs.writeFileSync(filename, JSON.stringify(graphStructure, null, 4)); // Save to file
+    //         console.log(`Graph structure has been saved to ${filename}`);
+    //     } catch (error) {
+    //         console.error(`Error writing to file: ${error.message}`);
+    //     }
+    // }
+
+    async processAllNodes() {
+
+        //-------------------
+        const processPromises = Array.from(this.nodes.values()).map((node) => node.processInfo());
+
+        // Wait for all nodes to complete processing
+        await Promise.all(processPromises);
+        console.log("All nodes have completed processing.");
+        //  ---------
+
+        // After all nodes have finished processing, write the graph data to the file
+        this.saveGraphToFile('grapht.json');
+    }
+
+}
