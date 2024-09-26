@@ -8,6 +8,7 @@ const openai = new OpenAI({
 //------------------------------
 const agents = require('./agents.js');
 const NEWS = require('./news.js');
+const { error, info } = require('console');
 //------------------------------
 
 class Info {
@@ -54,7 +55,11 @@ class Node {
     async analyzeAndProcess(info) {
         // Node 0 already generated questions, so we do not generate new ones.
         const rewrittenContent = await rewriteContent(info.content, this.prompt); // Rewrite the content using the node's prompt
-       
+        
+        if(info.questions.length < 5){
+            throw error(`QUESTION LEN LESS THAN 5 ${info.id} ${info.questions}`)
+        }
+
         // Call both answerQuestions in parallel using Promise.all
         const [nodeXAnswers, auditorAnswers] = await Promise.all([
             answerQuestions(info.content, info.questions, this.prompt), // Node X answers
@@ -64,6 +69,10 @@ class Node {
         // Assign auditorAnswers to info object after both API calls are completed
         info.auditorAnswers = auditorAnswers;
 
+        console.log(`NODE INFO ${info} QUESTION LENGTH ${info.questions.length}`)
+        console.log(`node0Answers ${info.node0Answers} nodeXAnswers ${nodeXAnswers}, auditorAnswers ${auditorAnswers}`)
+        console.log(`node0Answers ${info.node0Answers.length} nodeXAnswers ${nodeXAnswers.length}, auditorAnswers ${auditorAnswers.length}`)
+        
         // Calculate the misinformation indices
         const I0 = this.calculateMisinformationIndex(nodeXAnswers, info.node0Answers); // NodeX vs Node0
         const I1 = this.calculateMisinformationIndex(info.node0Answers, auditorAnswers); // Node0 vs Auditor
@@ -91,11 +100,14 @@ class Node {
     calculateMisinformationIndex(answers1, answers2) {
         if (!answers1 || !answers2) {
             console.error("One of the answer arrays is undefined. Answers1:", answers1, "Answers2:", answers2);
+            throw error("One of the answer arrays is undefined. Answers1:", answers1, "Answers2:", answers2,);
+
             return -1; // Return a special value indicating an error in calculation
         }
 
         if (answers1.length !== answers2.length) {
             console.error("Answer arrays are of different lengths. Answers1 length:", answers1.length, "Answers2 length:", answers2.length);
+            throw error("Answer arrays are of different lengths. Answers1 length:", answers1.length, "Answers2 length:", answers2.length);
             return -1; // Return a special value indicating an error in calculation
         }
 
@@ -162,7 +174,7 @@ class Graph {
     }
 
     // Save the graph structure to a file
-    saveGraphToFile(filename) {
+    saveGraphToFile(filename, neighborRanges) {
         const graphData = {
             nodes: Array.from(this.nodes.values()).map(node => ({
                 id: node.id,
@@ -173,6 +185,7 @@ class Graph {
             edges: Array.from(this.nodes.entries()).flatMap(([sourceId, node]) =>
                 node.neighbors.map(neighbor => ({ source: sourceId, target: neighbor }))
             ),
+            neighborRanges: neighborRanges
         };
 
         try {
@@ -183,7 +196,7 @@ class Graph {
         }
     }
 
-    async processAllNodes() {
+    async processAllNodes(filename, neighborRanges) {
         const processPromises = Array.from(this.nodes.values()).map(node => node.processInfo());
 
         // Wait for all nodes to complete processing
@@ -191,7 +204,7 @@ class Graph {
         console.log("All nodes have completed processing.");
 
         // After all nodes have finished processing, write the graph data to the file
-        this.saveGraphToFile('grapht.json');
+        this.saveGraphToFile(filename, neighborRanges);
     }
 }
 
@@ -241,8 +254,8 @@ async function answerQuestions(content, questions, prompt) {
         const response = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
             messages: [
-                { role: "system", content: `${prompt}` },
-                { role: "user", content: `Answer the following questions:\n${questions.join('\n')} based on your personality considering the content:${content}. Provide your response as a JSON object with an 'answers' key containing an array of 1 (for Yes) or 0 (for No).` }
+                { role: "system", content: `${prompt}. You always return the answer array of the same length of question. You Provide your response as a JSON object with an 'answers' key containing an array of 1 (for Yes) or 0 (for No) or -5 if fact is not present in the question but` },
+                { role: "user", content: `Answer the following questions:\n${questions.join('\n')} based on your personality considering the content:${content}. Provide your response as a JSON object with an 'answers' key containing an array of 1 (for Yes) or 0 (for No) or -5 if fact is not present in the question. Make sure to return same number of answer as there are questions` }
             ],
             response_format: { type: "json_object" } // Specify JSON response format
         });
@@ -324,13 +337,53 @@ control measures in food production.`;
 //     // Save the graph's output to a file or perform further operations
 // })();
 
+// (async () => {
+//     const graph = new Graph();
+
+//     // Total number of agents
+//     const numAgents = agents.length; // 21 agents in total
+//     const nodesPerAgent = 30; // Number of nodes per agent type
+//     const totalNodes = numAgents * nodesPerAgent; // Total number of nodes
+
+//     // Add Node 0 with its specific prompt
+//     graph.addNode(0, 'You are an avid news reader who likes to read about news and share it with others, often in a hoax way and distorting the original facts and mostly hyping up.');
+
+//     // Create nodes from 1 to totalNodes using agents
+//     for (let i = 1; i <= totalNodes; i++) {
+//         const agentIndex = Math.floor((i - 1) / nodesPerAgent); // Assign agent type based on the range
+//         graph.addNode(i, agents[agentIndex].prompt); // Use agent's prompt based on index
+//     }
+
+//     // Connect nodes programmatically
+//     const interval = 30;
+//     for (let i = 1; i <= totalNodes; i += interval) {
+//         graph.addEdge(0, i);
+//         for (let j = i; j < i + interval - 1 && j < totalNodes; j++) {
+//             graph.addEdge(j, j + 1); // Sequentially connect nodes within the branch
+//         }
+//     }
+
+//     // Example content
+//     const content = "Sample news article content";
+//     const questions = await generateQuestions(content);
+
+//     // Send the news to Node 0 for processing
+//     await graph.sendInfo(0, `info-category-01`, content, questions);
+
+//     // Process all nodes
+//     await graph.processAllNodes();
+// })();
+
 (async () => {
     const graph = new Graph();
 
     // Total number of agents
     const numAgents = agents.length; // 21 agents in total
-    const nodesPerAgent = 30; // Number of nodes per agent type
+    const nodesPerAgent = 4; // Number of nodes per agent type
     const totalNodes = numAgents * nodesPerAgent; // Total number of nodes
+
+    // Array to store ranges of each neighbor of Node 0
+    const neighborRanges = [];
 
     // Add Node 0 with its specific prompt
     graph.addNode(0, 'You are an avid news reader who likes to read about news and share it with others, often in a hoax way and distorting the original facts and mostly hyping up.');
@@ -342,21 +395,29 @@ control measures in food production.`;
     }
 
     // Connect nodes programmatically
-    const interval = 30;
-    for (let i = 1; i <= totalNodes; i += interval) {
+    //const interval = nodesPerAgent;
+    for (let i = 1; i <= totalNodes; i += nodesPerAgent) {
+        // Connect Node 0 to the first node in the current branch
         graph.addEdge(0, i);
-        for (let j = i; j < i + interval - 1 && j < totalNodes; j++) {
+
+        // Store the range of nodes connected to this neighbor of Node 0
+        neighborRanges.push([i, Math.min(i + nodesPerAgent - 1, totalNodes)]);
+
+        // Connect nodes within each branch sequentially
+        for (let j = i; j < i + nodesPerAgent - 1 && j < totalNodes; j++) {
             graph.addEdge(j, j + 1); // Sequentially connect nodes within the branch
         }
     }
 
-    // Example content
-    const content = "Sample news article content";
+//    console.log("neighborRanges:", neighborRanges)
+
+   // const content = "Sample news article content";
     const questions = await generateQuestions(content);
 
     // Send the news to Node 0 for processing
     await graph.sendInfo(0, `info-category-01`, content, questions);
 
-    // Process all nodes
-    await graph.processAllNodes();
+    // Process all nodes and pass neighborRanges to processAllNodes
+    await graph.processAllNodes('testss.json', neighborRanges);
 })();
+
