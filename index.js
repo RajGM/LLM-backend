@@ -32,8 +32,9 @@ app.post('/', async (req, res) => {
 app.get('/', async (req, res) => {
     try {
 
-        const data = await fs.readFile('./graph.json', 'utf-8');
+        const data = await fs.readFile('./grapht.json', 'utf-8');
         const jsonData = JSON.parse(data);
+        console.log("JSON DATA:", jsonData)
         res.json(jsonData);
 
         //res.json(analysisResult);

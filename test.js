@@ -5,6 +5,11 @@ const openai = new OpenAI({
     apiKey: "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"
 });
 
+//------------------------------
+const agents = require('./agents.js');
+const NEWS = require('./news.js');
+//------------------------------
+
 class Info {
     constructor(id, content, sender, questions = []) {
         this.infoId = id;
@@ -18,6 +23,7 @@ class Node {
     constructor(id, prompt) {
         this.id = id;
         this.prompt = prompt; // The rewriting prompt passed during initialization
+        // this.answerPrompt = answerPrompt;
         this.neighbors = [];
         this.queue = [];
         this.articles = []; // Stores concise data about info received and processed
@@ -29,17 +35,14 @@ class Node {
 
     receiveInfo(infoObj) {
         // Ensure questions are received correctly by all nodes
-        console.log(`Node ${this.id} received info with questions:`, infoObj.questions);
         this.queue.push(infoObj);
     }
 
     async processInfo() {
         while (this.queue.length > 0) {
             const info = this.queue.shift();
-            console.log(`Node ${this.id} is processing info.`);
             const updatedInfo = await this.analyzeAndProcess(info); // Ensure all tasks are done here
             this.articles.push(updatedInfo); // Save the updated info in the articles array
-            console.log(`Node ${this.id} added an article to its articles array.`);
 
             // Wait for neighbors to process the information
             await this.distribute(updatedInfo, info.sender);
@@ -48,17 +51,21 @@ class Node {
 
     // Method to analyze, rewrite, answer questions, and calculate misinformation index
     async analyzeAndProcess(info) {
-        console.log(`Node ${this.id} processing info with questions:`, info.questions);
         // Node 0 already generated questions, so we do not generate new ones.
-        const rewrittenContent = await this.rewriteContent(info.content); // Rewrite the content using the node's prompt
+        const rewrittenContent = await rewriteContent(info.content, this.prompt); // Rewrite the content using the node's prompt
 
-        console.log(`Node ${this.id} rewriting content:`, rewrittenContent);
+        // Call both answerQuestions in parallel using Promise.all
+        const [nodeXAnswers, auditorAnswers] = await Promise.all([
+            answerQuestions(info.content, info.questions, this.prompt), // Node X answers
+            answerQuestions(info.content, info.questions, `You are an external fact checker that answers yes/no questions based on a given text. Return your response as a JSON object with an 'answers' key containing an array of 1 (for Yes) or 0 (for No).`) // Auditor answers
+        ]);
 
-        const nodeXAnswers = await this.answerQuestions(info.questions); // Answer the questions using OpenAI API
+        // Assign auditorAnswers to info object after both API calls are completed
+        info.auditorAnswers = auditorAnswers;
 
-        console.log(`Node ${this.id} nodeXAnswers:`, nodeXAnswers);
-        console.log(`Node ${this.id} node0Answers:`, info.node0Answers);
-        console.log(`Node ${this.id} auditorAnswers:`, info.auditorAnswers);
+        // console.log(`Node ${this.id} nodeXAnswers:`, nodeXAnswers);
+        // console.log(`Node ${this.id} node0Answers:`, info.node0Answers);
+        // console.log(`Node ${this.id} auditorAnswers:`, info.auditorAnswers);
 
         // Calculate the misinformation indices
         const I0 = this.calculateMisinformationIndex(nodeXAnswers, info.node0Answers); // NodeX vs Node0
@@ -80,73 +87,10 @@ class Node {
             sender: this.id // Update sender to the current node
         };
 
-        console.log(`Node ${this.id} processed info and is updating its articles.`);
+        console.log(`Node ${this.id} processed`);
 
-        // this.articles.forEach((article, index) => {
-        //     console.log(`Node ${this.id} Article ${index}:`);
-        //     Object.keys(article).forEach(key => {
-        //         console.log(`Key: ${key}, Value: ${JSON.stringify(article[key], null, 2)}`);
-        //     });
-        // });
-
-        //        console.log(`Node ${this.id} THIS NODE ARTICLE ${this.values}`);
         return updatedInfo; // Return the updated info to be saved in the articles array
     }
-
-    // { role: "system", content: "You are an assistant that creates versions of news articles with increasing levels of misinformation. Return your response as a JSON object with a 'versions' key containing an array of strings." },
-    // { role: "user", content: `Create ${numVersions} versions of this article, each with more misinformation than the previous version.  Increase the level of distortion gradually. Here's the original article:\n\n${originalArticle}\n\nProvide your response as a JSON object with a 'versions' key containing an array of strings, where each string is a version of the article.` }
-
-
-    // Rewrite the content using the prompt and OpenAI API, returning a JSON object with newArticle
-    async rewriteContent(content) {
-        const response = await openai.chat.completions.create({
-            model: "gpt-3.5-turbo",
-            messages: [
-                { role: "system", content: `You are an assistant that rewrites content based on the given prompt:${this.prompt} ` },
-                { role: "user", content: `Create a new versions of this article, with more misinformation than the previous version.  Increase the level of distortion exponentially. Here's the original article:\n\n${content}\n\n Provide your response as a JSON object with a 'article' as key containing an string, as version of the article` }
-                // { role: "system", content: "You are an assistant that rewrites content based on the given prompt." },
-                // { role: "user", content: `Rewrite this article using the following prompt: ${this.prompt}.\n\nOriginal Article: \n${content} Provide your response as a JSON object with a 'article' as key containing an string, as version of the article.` }
-            ],
-            response_format: { type: "json_object" }
-        });
-
-        const result = JSON.parse(response.choices[0].message.content);
-        console.log("RESULT reWRITE CONTENT:", result)
-        return result.article; // The rewritten article based on the node's prompt
-    }
-
-    // Answer the questions using OpenAI API, returning a JSON object with answers
-    async answerQuestions(questions) {
-        if (!questions || questions.length === 0) {
-            console.error("No questions provided for answering.");
-            return []; // Return an empty array if no questions are provided
-        }
-
-        console.log("Received questions for Node:", this.id, questions);
-
-        try {
-            const response = await openai.chat.completions.create({
-                model: "gpt-3.5-turbo",
-                messages: [
-                    { role: "system", content: "You are an assistant that answers yes/no questions based on the provided content." },
-                    { role: "user", content: `Answer the following questions:\n${questions.join('\n')} Provide your response as a JSON object with an 'answers' key containing an array of 1 (for Yes) or 0 (for No).` }
-                ],
-                response_format: { type: "json_object" } // Specify JSON response format
-            });
-
-            const result = JSON.parse(response.choices[0].message.content);
-            if (!result.answers || result.answers.length === 0) {
-                throw new Error("No valid answers received from OpenAI.");
-            }
-
-            return result.answers; // Return the answers in an array of 1 (Yes) or 0 (No)
-
-        } catch (error) {
-            console.error("Error while calling OpenAI API for answering questions:", error);
-            return []; // Return an empty array if there's an error
-        }
-    }
-
 
     calculateMisinformationIndex(answers1, answers2) {
         if (!answers1 || !answers2) {
@@ -166,33 +110,17 @@ class Node {
         // Use Promise.all to ensure all neighbors receive the info and process it in parallel
         const distributePromises = this.neighbors.map(async (neighbor) => {
             if (neighbor.id !== senderId) {
-                console.log(`Node ${this.id} forwarding info to Node ${neighbor.id}`);
                 // Neighbor receives the info and starts processing immediately in parallel
                 neighbor.receiveInfo({ ...info, sender: this.id });
                 return neighbor.processInfo(); // Neighbor starts processing in parallel
             }
         });
-    
+
         // Wait for all neighbors to receive and start processing in parallel
         await Promise.all(distributePromises);
     }
-    
-
-    // async distribute(info, senderId) {
-    //     const distributePromises = this.neighbors.map(async neighbor => {
-    //         if (neighbor.id !== senderId) {
-    //             console.log(`Node ${this.id} forwarding info to Node ${neighbor.id}`);
-    //             neighbor.receiveInfo({ ...info, sender: this.id });
-    //             await neighbor.processInfo(); // Ensure neighbors process immediately and wait for them to finish
-    //         }
-    //     });
-
-    //     // Wait for all neighbors to finish processing
-    //     await Promise.all(distributePromises);
-    // }
 
     receiveInfo(infoObj) {
-        console.log(`Node ${this.id} received info with questions from Node ${infoObj.sender}`);
         this.queue.push(infoObj);
     }
 
@@ -218,24 +146,14 @@ class Graph {
     }
 
     // Send info from Node 0 with the initial article, generated questions, and auditor answers
-    async sendInfo(sourceId, infoId, content, questions, auditorAnswers) {
+    async sendInfo(sourceId, infoId, content, questions) {
         const sourceNode = this.nodes.get(sourceId);
         if (sourceNode) {
+            console.log("INSIDE SOURCE NODE:", sourceNode)
             if (!questions || questions.length === 0) {
                 console.error("No questions generated for Node 0");
                 return;
             }
-
-            console.log("Node 0 questions:", questions);
-
-            const node0Answers = await answerQuestions(content, questions); // Node 0 answers the questions
-
-            if (!node0Answers || node0Answers.length === 0) {
-                console.error("Node 0 did not receive valid answers for the generated questions.");
-                return;
-            }
-
-            console.log("Node 0 answers:", node0Answers);
 
             const info = new Info(infoId, content, sourceId, questions); // Pass down the generated questions
 
@@ -248,26 +166,22 @@ class Graph {
         }
     }
 
+    // Method to capture the current structure of the graph
+    captureGraphStructure() {
+        // Capture nodes and their edges
+        const graphStructure = {
+            nodes: Array.from(this.nodes.values()).map(node => ({
+                id: node.id,
+                prompt: node.prompt,   // The prompt used by the node
+                articles: node.articles, // The articles processed by the node
+                neighbors: node.neighbors.map(neighbor => neighbor.id) // Neighbors (edges)
+            })),
+            edges: Array.from(this.nodes.entries()).flatMap(([sourceId, node]) =>
+                node.neighbors.map(neighbor => ({ source: sourceId, target: neighbor.id }))
+            ),
+        };
 
-    async processAllNodes() {
-        // const processPromises = [];
-        // this.nodes.forEach(node => {
-        //     // Collect promises for each node's processing
-        //     processPromises.push(node.processInfo());
-        // });
-
-        // // Wait for all nodes to complete processing
-        // await Promise.all(processPromises);
-
-        //-------------------
-        const processPromises = Array.from(this.nodes.values()).map((node) => node.processInfo());
-
-        // Wait for all nodes to complete processing
-        await Promise.all(processPromises);
-        console.log("All nodes have completed processing.");
-//  ---------
-        // After all nodes have finished processing, write the graph data to the file
-        this.saveGraphToFile('graph.json');
+        return graphStructure;
     }
 
     // Function to calculate the size of the data in bytes
@@ -287,7 +201,7 @@ class Graph {
         };
 
         // Log the structure that will be written to the file
-        console.log(`Saving the following graph data structure: ${JSON.stringify(graphData, null, 2)}`);
+        //console.log(`Saving the following graph data structure: ${JSON.stringify(graphData, null, 2)}`);
 
         try {
             // Write the full data in chunks if needed
@@ -298,9 +212,30 @@ class Graph {
         }
     }
 
+    // saveGraphToFile(filename) {
+    //     const graphStructure = this.captureGraphStructure();
 
+    //     try {
+    //         fs.writeFileSync(filename, JSON.stringify(graphStructure, null, 4)); // Save to file
+    //         console.log(`Graph structure has been saved to ${filename}`);
+    //     } catch (error) {
+    //         console.error(`Error writing to file: ${error.message}`);
+    //     }
+    // }
 
+    async processAllNodes() {
 
+        //-------------------
+        const processPromises = Array.from(this.nodes.values()).map((node) => node.processInfo());
+
+        // Wait for all nodes to complete processing
+        await Promise.all(processPromises);
+        console.log("All nodes have completed processing.");
+        //  ---------
+
+        // After all nodes have finished processing, write the graph data to the file
+        this.saveGraphToFile('grapht.json');
+    }
 
 }
 
@@ -323,30 +258,53 @@ async function generateQuestions(text) {
     return result.questions;
 }
 
-// Helper function to answer questions using OpenAI API, returning a JSON object
-async function answerQuestions(content, questions) {
-    if (!questions || questions.length === 0) {
-        throw new Error("No questions provided for answering.");
-    }
-
+// Rewrite the content using the prompt and OpenAI API, returning a JSON object with newArticle
+async function rewriteContent(content, prompt) {
     const response = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [
-            { role: "system", content: "You are an external fact checker that answers yes/no questions based on a given text. Return your response as a JSON object with an 'answers' key containing an array of 1 (for Yes) or 0 (for No)." },
-            { role: "user", content: `Answer the following yes/no questions based on this content:\n\n${content}\n\nQuestions:\n${questions.join('\n')} Provide your response as a JSON object with an 'answers' key containing an array of 1 (for Yes) or 0 (for No).` }
+            { role: "system", content: `${prompt}` },
+            { role: "user", content: `Create a new versions of this article, based on your personality.  Here's the original article:\n\n${content}\n\n Provide your response as a JSON object with a 'article' as key containing an string, as version of the article` }
         ],
-        response_format: { type: "json_object" } // Specify JSON response format
+        response_format: { type: "json_object" }
     });
 
     const result = JSON.parse(response.choices[0].message.content);
-    if (!result.answers || result.answers.length === 0) {
-        throw new Error("No answers were provided.");
-    }
-
-    return result.answers; // Return the answers in an array of 1 (Yes) or 0 (No)
+    console.log("RESULT reWRITE CONTENT:", result)
+    return result.article; // The rewritten article based on the node's prompt
 }
 
-const ARTICLE = `A human finger was discovered in a tub of ice cream purchased from a local grocery store in Springfield.
+// Answer the questions using OpenAI API, returning a JSON object with answers
+async function answerQuestions(content, questions, prompt) {
+    if (!questions || questions.length === 0) {
+        console.error("No questions provided for answering.");
+        return []; // Return an empty array if no questions are provided
+    }
+
+    try {
+        const response = await openai.chat.completions.create({
+            model: "gpt-3.5-turbo",
+            messages: [
+                { role: "system", content: `${prompt}` },
+                { role: "user", content: `Answer the following questions:\n${questions.join('\n')} based on your personality considering the content:${content}. Provide your response as a JSON object with an 'answers' key containing an array of 1 (for Yes) or 0 (for No).` }
+            ],
+            response_format: { type: "json_object" } // Specify JSON response format
+        });
+
+        const result = JSON.parse(response.choices[0].message.content);
+        if (!result.answers || result.answers.length === 0) {
+            throw new Error("No valid answers received from OpenAI.");
+        }
+
+        return result.answers; // Return the answers in an array of 1 (Yes) or 0 (No)
+
+    } catch (error) {
+        console.error("Error while calling OpenAI API for answering questions:", error);
+        return []; // Return an empty array if there's an error
+    }
+}
+
+const content = `A human finger was discovered in a tub of ice cream purchased from a local grocery store in Springfield.
 The shocking find was made by a customer who immediately reported it to the authorities. Springfield
 Police Department has launched an investigation to determine how the finger ended up in the ice cream.
 
@@ -363,58 +321,49 @@ control measures in food production.`;
 (async () => {
     const graph = new Graph();
 
-    // Add nodes to the graph with customized prompts
-    for (let i = 0; i <= 115; i++) {
-        graph.addNode(i, 'You are a avid news reader who likes to read about news and share it with others, often in a hoax way and distorting the original facts and mostly hyping up.');
+    // Total number of agents
+    const numAgents = agents.length; // 21 agents in total
+    const nodesPerAgent = 30; // Number of nodes per agent type
+    const totalNodes = numAgents * nodesPerAgent; // Total number of nodes
+
+    // Add Node 0 with its specific prompt
+    graph.addNode(0, 'You are an avid news reader who likes to read about news and share it with others, often in a hoax way and distorting the original facts and mostly hyping up.');
+
+    // Create nodes from 1 to totalNodes using agents
+    for (let i = 1; i <= totalNodes; i++) {
+        const agentIndex = Math.floor((i - 1) / nodesPerAgent); // Assign agent type based on the range
+        graph.addNode(i, agents[agentIndex].prompt); // Use agent's prompt based on index
     }
 
-    // Define edges (relationships between nodes)
-    const edgesGraph1 = [
-        [0, 1], [1, 2], [2, 3], [3, 4], [4, 5],
-        [5, 6], [6, 7], [7, 8], [8, 9], [9, 10],
-        [10, 11], [11, 12], [12, 13], [13, 14], [14, 15],
+    // Programmatically define the edges in the same pattern as your edgesGraph1 structure
+    const interval = 30; // Interval to connect nodes from the main node
+    const branchLength = 30; // Number of sequential nodes connected from each interval node
 
+    for (let i = 1; i <= totalNodes; i += interval) {
+        // Connect the main node (0) to the first node of each branch (e.g., 1, 16, 31, ...)
+        graph.addEdge(0, i);
 
-        [0, 16], [16, 17], [17, 18], [18, 19], [19, 20], [20, 21], [21, 22], [22, 23], [23, 24],
-        [24, 25], [25, 26], [26, 27], [27, 28], [28, 29], [29, 30],
+        // Connect nodes within each branch sequentially
+        for (let j = i; j < i + branchLength - 1 && j < totalNodes; j++) {
+            graph.addEdge(j, j + 1); // Sequentially connect nodes within the branch
+        }
 
-        [0, 31], [31, 32], [32, 33], [33, 34], [34, 35], [35, 36], [36, 37], [37, 38], [38, 39],
-        [39, 40], [40, 41], [41, 42], [42, 43], [43, 44], [44, 45],
+        // No connection between the last node of one branch and the first node of the next branch
+        // This ensures node 15 doesn't connect to 16, node 30 doesn't connect to 31, etc.
+    }
 
-        [0, 46], [46, 47], [47, 48], [48, 49], [49, 50], [50, 51], [51, 52], [52, 53], [53, 54],
-        [54, 55], [55, 56], [56, 57], [57, 58], [58, 59], [59, 60],
+    // Generate questions based on the news article
+    const questions = await generateQuestions(content);
 
-        [0, 61], [61, 62], [62, 63], [63, 64], [64, 65], [65, 66], [66, 67], [67, 68], [68, 69],
-        [69, 70], [70, 71], [71, 72], [72, 73], [73, 74], [74, 75],
+    // Generate external auditor answers based on the article and questions
+    //const auditorAnswers = await answerQuestions(content, questions, "You are an external fact checker that answers yes/no questions based on a given text. Return your response as a JSON object with an 'answers' key containing an array of 1 (for Yes) or 0 (for No).");
 
-        [0, 76], [76, 77], [77, 78], [78, 79], [79, 80], [80, 81], [81, 82], [82, 83], [83, 84],
-        [84, 85], [85, 86], [86, 87], [87, 88], [88, 89], [89, 90],
-
-        [0, 91], [91, 92], [92, 93], [93, 94], [94, 95], [95, 96], [96, 97], [97, 98], [98, 99],
-        [99, 100], [100, 101], [101, 102], [102, 103], [103, 104], [104, 105],
-
-        // [106, 107], [107, 108], [108, 109],
-        // [106, 110], [110, 111], [111, 112],
-        // [106, 113], [113, 114], [114, 115]
-
-    ];
-
-    edgesGraph1.forEach(([source, target]) => graph.addEdge(source, target));
-
-    //const content = `Truthful Incident A human finger was discovered in a tub of ice cream purchased from a local grocery store in Springfield. The shocking find was made by a customer who immediately reported it to the authorities. Springfield Police Department has launched an investigation to determine how the finger ended up in the ice cream.`;
-    const content = ARTICLE;
-    console.log(content)
-
-    const questions = await generateQuestions(content);  // Generate questions
-    const auditorAnswers = await answerQuestions(content, questions); // External Auditor answers
-
-    // Send initial information from Node 0
-    await graph.sendInfo(0, 'info-001', content, questions, auditorAnswers);
+    // Send the news to a random node (excluding Node 0) for processing
+    //await graph.sendInfo(0, `info-${'category'}-0${'i'}`, content, questions, auditorAnswers, `You are an avid news reader who likes to read about news and share it with others, often in a hoax way and distorting the original facts and mostly hyping up.`); // Use the agent's prompt for the node
+    await graph.sendInfo(0, `info-${'category'}-0${'i'}`, content, questions)
 
     // Process all nodes in the graph
     await graph.processAllNodes();
 
-    // Save the graph's output to a file
-    //graph.saveGraphToFile('./graph.json');
+    // Save the graph's output to a file or perform further operations
 })();
-

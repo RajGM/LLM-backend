@@ -21,7 +21,32 @@ const edgesGraph1 = [
     [0, 91], [91, 92], [92, 93], [93, 94], [94, 95], [95, 96], [96, 97], [97, 98], [98, 99],
     [99, 100], [100, 101], [101, 102], [102, 103], [103, 104], [104, 105],
 
-    [106, 107], [107,108], [108,109], 
-    [106, 110], [110,111], [111, 112],
+    [106, 107], [107, 108], [108, 109],
+    [106, 110], [110, 111], [111, 112],
     [106, 113], [113, 114], [114, 115]
 ];
+
+// Distribute news from NEWS by category
+// for (const [category, articles] of Object.entries(NEWS)) {
+//     // Iterate over articles in each category
+//     for (let i = 0; i < articles.length; i++) {
+//         const content = articles[i]; // Get the news article
+//         // Generate questions based on the news article
+//         const questions = await generateQuestions(content);
+
+//         // Generate external auditor answers based on the article and questions
+//         const auditorAnswers = await answerQuestions(content, questions, "You are an external fact checker that answers yes/no questions based on a given text. Return your response as a JSON object with an 'answers' key containing an array of 1 (for Yes) or 0 (for No).");
+
+//         // Send the news to a random node (excluding Node 0) for processing
+//         await graph.sendInfo(0, `info-${category}-0${i}`, content, questions, auditorAnswers, `You are an avid news reader who likes to read about news and share it with others, often in a hoax way and distorting the original facts and mostly hyping up.`); // Use the agent's prompt for the node
+//     }
+// }
+
+// const processPromises = [];
+// this.nodes.forEach(node => {
+//     // Collect promises for each node's processing
+//     processPromises.push(node.processInfo());
+// });
+
+// // // Wait for all nodes to complete processing
+//  await Promise.all(processPromises);
