@@ -18,7 +18,7 @@ app.post('/', async (req, res) => {
         const article = req.body.article || originalArticle;
         //const analysisResult = await analyzeArticle(article);
 
-        const data = await fs.readFile('./data.json', 'utf-8');
+        const data = await fs.readFile('./results/politics-1.json', 'utf-8');
         const jsonData = JSON.parse(data);
         res.json(jsonData);
 
@@ -32,9 +32,8 @@ app.post('/', async (req, res) => {
 app.get('/', async (req, res) => {
     try {
 
-        const data = await fs.readFile('./testss.json', 'utf-8');
+        const data = await fs.readFile('./results/politics-1.json', 'utf-8');
         const jsonData = JSON.parse(data);
-        console.log("JSON DATA:", jsonData)
         res.json(jsonData);
 
         //res.json(analysisResult);
@@ -49,6 +48,7 @@ app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
 
+/*
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
@@ -167,3 +167,4 @@ async function analyzeArticle(article) {
 
     return finalData;
 }
+*/
