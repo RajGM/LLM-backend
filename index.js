@@ -1,9 +1,9 @@
-const OpenAI = require('openai');
 const fs = require('fs').promises;
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const path = require('path');
 
 dotenv.config();
 const app = express();
@@ -29,14 +29,26 @@ app.post('/', async (req, res) => {
     }
 });
 
-app.get('/', async (req, res) => {
+app.get('*', async (req, res) => {
     try {
+        // Extract tab and subtab from the query parameters
+        
+        // Extract tab and subtab from the path (req.url)
+        const urlParts = req.url.split('/').filter(Boolean); // Split by '/' and filter out empty strings
 
-        const data = await fs.readFile('./results/politics-1.json', 'utf-8');
+        // Assuming the format is /tab/subtab.json
+        const tab = urlParts[0];    // First part is the tab (e.g., 'same_agents')
+        const subtab = urlParts[1]; // Second part is the subtab (e.g., 'politics-0.json')
+
+        // Build the file path dynamically based on the tab and subtab
+        const filePath = path.join(__dirname, 'results', tab, 'json', subtab);
+       // console.log(filePath)
+        // Read and parse the file
+        const data = await fs.readFile(filePath, 'utf-8');
         const jsonData = JSON.parse(data);
-        res.json(jsonData);
 
-        //res.json(analysisResult);
+        // Return the JSON data as a response
+        res.json(jsonData);
     } catch (error) {
         console.error("Error processing article:", error);
         res.status(500).json({ error: 'An error occurred while processing the article.' });
