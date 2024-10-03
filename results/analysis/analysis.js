@@ -33,7 +33,6 @@ function calculateVariance(data, mean) {
 
 // Function to perform ANOVA
 function performANOVA(groups) {
-  console.log("group:", groups)
   const overallMean = calculateMean(groups.flat());
   const groupMeans = groups.map(group => calculateMean(group));
   const withinGroupVariance = groups.map(group => calculateVariance(group, groupMeans[groups.indexOf(group)])).reduce((acc, val) => acc + val, 0) / groups.length;
@@ -214,7 +213,6 @@ function writeResultsToFile(outputFilePath, data) {
 // Function to perform ANOVA for all news files passed through a range
 function performRangeANOVA(DMISeries) {
   // Perform ANOVA on the collected I0, I1, I2 values within a range
-  console.log("DMISERIES:", DMISeries)
   const anovaI0 = performANOVA(DMISeries.I0);
   const anovaI1 = performANOVA(DMISeries.I1);
   const anovaI2 = performANOVA(DMISeries.I2);
