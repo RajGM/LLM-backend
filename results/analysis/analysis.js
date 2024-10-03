@@ -7,30 +7,38 @@ function readJSONFile(filePath) {
   return JSON.parse(data);
 }
 
+// Helper function to ensure data is an array
+function ensureArray(data) {
+  return Array.isArray(data) ? data : [data];
+}
+
 // Function to calculate the Misinformation Propagation Rate (MPR)
 function calculateMPR(sourceDMI, targetDMI) {
   return targetDMI - sourceDMI;
 }
 
-// Function to calculate the Mean
+// Function to calculate Mean
 function calculateMean(data) {
-  const sum = data.reduce((acc, value) => acc + value, 0);
-  return sum / data.length;
+  const arrayData = ensureArray(data);  // Ensure data is an array
+  const sum = arrayData.reduce((acc, value) => acc + value, 0);
+  return sum / arrayData.length;
 }
 
 // Function to calculate Variance
 function calculateVariance(data, mean) {
-  const squaredDiffs = data.map(value => Math.pow(value - mean, 2));
+  const arrayData = ensureArray(data);  // Ensure data is an array
+  const squaredDiffs = arrayData.map(value => Math.pow(value - mean, 2));
   return calculateMean(squaredDiffs);
 }
 
 // Function to perform ANOVA
 function performANOVA(groups) {
+  console.log("group:", groups)
   const overallMean = calculateMean(groups.flat());
   const groupMeans = groups.map(group => calculateMean(group));
   const withinGroupVariance = groups.map(group => calculateVariance(group, groupMeans[groups.indexOf(group)])).reduce((acc, val) => acc + val, 0) / groups.length;
   const betweenGroupVariance = calculateVariance(groupMeans, overallMean);
-  
+
   return {
     overallMean,
     groupMeans,
@@ -143,6 +151,8 @@ function processFile(filePath, fileNameWithoutExtension) {
       DMISeries.I2.push(I2);
     });
 
+     // Perform ANOVA on all news files in the current range
+     const allNewsAnovaResults = performRangeANOVA(DMISeries);
 
     // Put everything into a single object for this file
     result.push({
@@ -153,7 +163,8 @@ function processFile(filePath, fileNameWithoutExtension) {
           Node0_to_NodeFirst,
           Node0_to_NodeLast,
           NodeFirst_to_NodeLast,
-          DMISeries // Save the DMI series here for each news
+          DMISeries, // Save the DMI series here for each news
+          allNewsAnovaResults 
         }
       }
     });
@@ -200,12 +211,119 @@ function writeResultsToFile(outputFilePath, data) {
   console.log(`Results written to ${outputFilePath}`);
 }
 
+// Function to perform ANOVA for all news files passed through a range
+function performRangeANOVA(DMISeries) {
+  // Perform ANOVA on the collected I0, I1, I2 values within a range
+  console.log("DMISERIES:", DMISeries)
+  const anovaI0 = performANOVA(DMISeries.I0);
+  const anovaI1 = performANOVA(DMISeries.I1);
+  const anovaI2 = performANOVA(DMISeries.I2);
+
+  return {
+    "ANOVA I0": anovaI0,
+    "ANOVA I1": anovaI1,
+    "ANOVA I2": anovaI2
+  };
+}
+
+// Function to perform between-group variance analysis
+function performBetweenGroupVarianceAnalysis(results) {
+  const ranges = Object.keys(results); // Extract all the ranges
+  const betweenGroupResults = {};
+
+  // Step 1: Between-Group Variance for Same News Across Different Ranges
+  const newsFiles = new Set();
+
+  // Collect unique news file names
+  ranges.forEach((range) => {
+    const calculations = results[range].calculations;
+    Object.keys(calculations).forEach(newsFile => {
+      newsFiles.add(newsFile); // Add all unique news files
+    });
+  });
+
+  // For each unique news file, compare its DMI across all ranges
+  newsFiles.forEach(newsFile => {
+    const dmiSeriesI0 = [];
+    const dmiSeriesI1 = [];
+    const dmiSeriesI2 = [];
+
+    ranges.forEach(range => {
+      const calculations = results[range].calculations;
+      if (calculations[newsFile]) {  // If the news file exists in this range
+        const DMISeries = calculations[newsFile].DMISeries;
+        dmiSeriesI0.push(DMISeries.I0);
+        dmiSeriesI1.push(DMISeries.I1);
+        dmiSeriesI2.push(DMISeries.I2);
+      }
+    });
+
+    // Perform between-group variance analysis for this news file across all ranges
+    const anovaI0 = performANOVA(dmiSeriesI0);
+    const anovaI1 = performANOVA(dmiSeriesI1);
+    const anovaI2 = performANOVA(dmiSeriesI2);
+
+    // Store the results for this news file across ranges
+    betweenGroupResults[newsFile] = {
+      "Between_Range_ANOVA_Results": {
+        "anovaI0": anovaI0,
+        "anovaI1": anovaI1,
+        "anovaI2": anovaI2
+      }
+    };
+  });
+
+  // Step 2: Between-Group Variance for All News Across All Ranges
+  const globalDmiSeriesI0 = [];
+  const globalDmiSeriesI1 = [];
+  const globalDmiSeriesI2 = [];
+
+  // Collect DMISeries from all news across all ranges
+  ranges.forEach(range => {
+    const calculations = results[range].calculations;
+    Object.keys(calculations).forEach(newsFile => {
+      const DMISeries = calculations[newsFile].DMISeries;
+      globalDmiSeriesI0.push(DMISeries.I0);
+      globalDmiSeriesI1.push(DMISeries.I1);
+      globalDmiSeriesI2.push(DMISeries.I2);
+    });
+  });
+
+  // Perform global between-group variance analysis for all news across all ranges
+  const globalAnovaI0 = performANOVA(globalDmiSeriesI0);
+  const globalAnovaI1 = performANOVA(globalDmiSeriesI1);
+  const globalAnovaI2 = performANOVA(globalDmiSeriesI2);
+
+  // Store the global variance results
+  betweenGroupResults["Global"] = {
+    "Global_Between_Group_ANOVA_Results": {
+      "anovaI0": globalAnovaI0,
+      "anovaI1": globalAnovaI1,
+      "anovaI2": globalAnovaI2
+    }
+  };
+
+  return betweenGroupResults;
+}
+
 // Main execution function
 function main() {
   const directoryPath = './'; // Directory with all input JSON files
-  const outputFilePath = './raw/processed_results_with_new_comparisons.json'; // Path for output file
+  const outputFilePath = './raw/allfilesWithinRange.json'; // Path for output file
   const result = processAllFiles(directoryPath);
   writeResultsToFile(outputFilePath, result);
+
+
+  // Step 2: Load processed results from the file
+  const processedResults = readJSONFile(outputFilePath);
+
+  // Step 3: Perform between-group variance analysis
+  const betweenGroupVarianceResults = performBetweenGroupVarianceAnalysis(processedResults);
+
+  // Step 4: Write the between-group variance analysis results to a new file
+  const outputVarianceFilePath = './raw/allSameNewsAcrossRange.json';
+  writeResultsToFile(outputVarianceFilePath, betweenGroupVarianceResults);
+
 }
 
 // Execute the main function
