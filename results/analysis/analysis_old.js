@@ -60,43 +60,6 @@ function categorizeTaxonomy(mprI0, mprI1, mprI2) {
   };
 }
 
-// Function to perform calculations for the specific comparison
-function performCalculations(sourceNode, targetNode) {
-  const mprI0 = calculateMPR(sourceNode.articles[0].misInformationIndexArray.I0, targetNode.articles[0].misInformationIndexArray.I0);
-  const mprI1 = calculateMPR(sourceNode.articles[0].misInformationIndexArray.I1, targetNode.articles[0].misInformationIndexArray.I1);
-  const mprI2 = calculateMPR(sourceNode.articles[0].misInformationIndexArray.I2, targetNode.articles[0].misInformationIndexArray.I2);
-
-  // Perform Taxonomy Analysis based on MPR values
-  const taxonomyAnalysis = categorizeTaxonomy(mprI0, mprI1, mprI2);
-
-  // Prepare groups for ANOVA
-  const groupI0 = [sourceNode.articles[0].misInformationIndexArray.I0, targetNode.articles[0].misInformationIndexArray.I0];
-  const groupI1 = [sourceNode.articles[0].misInformationIndexArray.I1, targetNode.articles[0].misInformationIndexArray.I1];
-  const groupI2 = [sourceNode.articles[0].misInformationIndexArray.I2, targetNode.articles[0].misInformationIndexArray.I2];
-
-  const anovaI0 = performANOVA([groupI0]);
-  const anovaI1 = performANOVA([groupI1]);
-  const anovaI2 = performANOVA([groupI2]);
-
-  return {
-    "Misinformation Propagation Rate": {
-      mprI0,
-      mprI1,
-      mprI2
-    },
-    "Taxonomy Analysis": {
-      I0: taxonomyAnalysis.I0,
-      I1: taxonomyAnalysis.I1,
-      I2: taxonomyAnalysis.I2
-    },
-    "ANOVA Results": {
-      anovaI0,
-      anovaI1,
-      anovaI2
-    }
-  };
-}
-
 // Function to process a single file and return the results
 function processFile(filePath, fileNameWithoutExtension) {
   const data = readJSONFile(filePath);
@@ -118,31 +81,25 @@ function processFile(filePath, fileNameWithoutExtension) {
     // Capture the prompt from the first node in the range
     const prompt = nodesInRange[0].prompt;
 
-    // Nodes for calculation
-    const node0 = nodes[0]; // Assuming Node0 is the original node for the network
-    const nodeFirst = nodesInRange[0];
-    const nodeLast = nodesInRange[nodesInRange.length - 1];
+    // Calculate MPR for I0, I1, and I2 between the first and last node in the range
+    const firstNode = nodesInRange[0];
+    const lastNode = nodesInRange[nodesInRange.length - 1];
 
-    // Perform the calculations for each comparison
-    const Node0_to_NodeFirst = performCalculations(node0, nodeFirst);
-    const Node0_to_NodeLast = performCalculations(node0, nodeLast);
-    const NodeFirst_to_NodeLast = performCalculations(nodeFirst, nodeLast);
+    const mprI0 = calculateMPR(firstNode.articles[0].misInformationIndexArray.I0, lastNode.articles[0].misInformationIndexArray.I0);
+    const mprI1 = calculateMPR(firstNode.articles[0].misInformationIndexArray.I1, lastNode.articles[0].misInformationIndexArray.I1);
+    const mprI2 = calculateMPR(firstNode.articles[0].misInformationIndexArray.I2, lastNode.articles[0].misInformationIndexArray.I2);
 
-      // Initialize the Dynamic Misinformation Index (DMI) series
-      const DMISeries = {
-        I0: [],
-        I1: [],
-        I2: []
-      };
+    // Perform Taxonomy Analysis based on MPR values
+    const taxonomyAnalysis = categorizeTaxonomy(mprI0, mprI1, mprI2);
 
-          // Loop through all nodes in the range and collect the DMI values
-    nodesInRange.forEach(node => {
-      const { I0, I1, I2 } = node.articles[0].misInformationIndexArray;
-      DMISeries.I0.push(I0);
-      DMISeries.I1.push(I1);
-      DMISeries.I2.push(I2);
-    });
+    // Calculate ANOVA - Using I0, I1, and I2 values across the range
+    const groupI0 = nodesInRange.map(node => node.articles[0].misInformationIndexArray.I0);
+    const groupI1 = nodesInRange.map(node => node.articles[0].misInformationIndexArray.I1);
+    const groupI2 = nodesInRange.map(node => node.articles[0].misInformationIndexArray.I2);
 
+    const anovaI0 = performANOVA([groupI0]);
+    const anovaI1 = performANOVA([groupI1]);
+    const anovaI2 = performANOVA([groupI2]);
 
     // Put everything into a single object for this file
     result.push({
@@ -150,10 +107,21 @@ function processFile(filePath, fileNameWithoutExtension) {
       prompt,
       calculations: {
         [fileNameWithoutExtension]: {
-          Node0_to_NodeFirst,
-          Node0_to_NodeLast,
-          NodeFirst_to_NodeLast,
-          DMISeries // Save the DMI series here for each news
+          "Misinformation Propagation Rate": {
+            mprI0,
+            mprI1,
+            mprI2
+          },
+          "Taxonomy Analysis": {
+            I0: taxonomyAnalysis.I0,
+            I1: taxonomyAnalysis.I1,
+            I2: taxonomyAnalysis.I2
+          },
+          "ANOVA Results": {
+            anovaI0,
+            anovaI1,
+            anovaI2
+          }
         }
       }
     });
@@ -203,7 +171,7 @@ function writeResultsToFile(outputFilePath, data) {
 // Main execution function
 function main() {
   const directoryPath = './'; // Directory with all input JSON files
-  const outputFilePath = './raw/processed_results_with_new_comparisons.json'; // Path for output file
+  const outputFilePath = './raw/processed_results_old.json'; // Path for output file
   const result = processAllFiles(directoryPath);
   writeResultsToFile(outputFilePath, result);
 }

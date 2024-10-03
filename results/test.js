@@ -289,7 +289,7 @@ async function answerQuestions(content, questions, prompt) {
             model: "gpt-4o-mini",
             messages: [
                 { role: "system", content: `${prompt}. You always return the answer array of the same length of question. You Provide your response as a JSON object with an 'answers' key containing an array of 2 (for Yes) or 0 (for No) or 1 if fact is not present in the question but` },
-                { role: "user", content: `Answer the following questions:\n${questions.join('\n')} based on your personality considering the content:${content}. Provide your response as a JSON object with an 'answers' key containing an array of 1 (for Yes) or 0 (for No) or 2 if fact is not present in the question. Make sure to return same number of answer as there are questions` }
+                { role: "user", content: `Answer the following questions:\n${questions.join('\n')} based on your personality considering the content:${content}. Provide your response as a JSON object with an 'answers' key containing an array of 2 (for Yes) or 0 (for No) or 1 if fact is not present in the question. Make sure to return same number of answer as there are questions` }
             ],
             response_format: { type: "json_object" } // Specify JSON response format
         });
