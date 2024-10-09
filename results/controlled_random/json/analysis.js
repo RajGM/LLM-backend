@@ -1,5 +1,12 @@
 const fs = require('fs');
 const path = require('path');
+const agents  = require('./agents');
+const { connect } = require('http2');
+// Helper function to get agent's name based on the prompt
+function getAgentNameByPrompt(prompt) {
+  const agent = agents.find(agent => agent.prompt === prompt);
+  return agent ? agent.name : 'Unknown'; // Return 'Unknown' if no matching agent is found
+}
 
 // Function to read and parse the JSON file
 function readJSONFile(filePath) {
@@ -122,9 +129,12 @@ function processFile(filePath, fileNameWithoutExtension) {
     // Ensure we have at least two nodes to calculate MPR
     if (nodesInRange.length < 2) return;
 
-    // Capture the prompt from the first node in the range
-    const prompt = nodesInRange[0].prompt;
-
+    // Capture the agent's name in sequence from each node's prompt in the range
+    const namesInSequence = nodesInRange.map(node => {
+      const prompt = node.prompt || 'No prompt';
+      return getAgentNameByPrompt(prompt);
+    });
+    
     // Nodes for calculation
     const node0 = nodes[0]; // Assuming Node0 is the original node for the network
     const nodeFirst = nodesInRange[0];
@@ -135,14 +145,14 @@ function processFile(filePath, fileNameWithoutExtension) {
     const Node0_to_NodeLast = performCalculations(node0, nodeLast);
     const NodeFirst_to_NodeLast = performCalculations(nodeFirst, nodeLast);
 
-      // Initialize the Dynamic Misinformation Index (DMI) series
-      const DMISeries = {
-        I0: [],
-        I1: [],
-        I2: []
-      };
+    // Initialize the Dynamic Misinformation Index (DMI) series
+    const DMISeries = {
+      I0: [],
+      I1: [],
+      I2: []
+    };
 
-          // Loop through all nodes in the range and collect the DMI values
+    // Loop through all nodes in the range and collect the DMI values
     nodesInRange.forEach(node => {
       const { I0, I1, I2 } = node.articles[0].misInformationIndexArray;
       DMISeries.I0.push(I0);
@@ -150,23 +160,24 @@ function processFile(filePath, fileNameWithoutExtension) {
       DMISeries.I2.push(I2);
     });
 
-     // Perform ANOVA on all news files in the current range
-     const allNewsAnovaResults = performRangeANOVA(DMISeries);
+    // Perform ANOVA on all news files in the current range
+    const allNewsAnovaResults = performRangeANOVA(DMISeries);
 
-    // Put everything into a single object for this file
+    // Put everything into a single object for this file, including agent name sequence
     result.push({
       range: `${startNodeIndex}-${endNodeIndex}`,
-      prompt,
+      namesInSequence,  // Correctly include namesInSequence here
       calculations: {
         [fileNameWithoutExtension]: {
           Node0_to_NodeFirst,
           Node0_to_NodeLast,
           NodeFirst_to_NodeLast,
           DMISeries, // Save the DMI series here for each news
-          allNewsAnovaResults 
+          allNewsAnovaResults
         }
       }
     });
+    
   });
 
   return result;
@@ -183,20 +194,20 @@ function processAllFiles(directoryPath) {
     if (file.endsWith('.json')) {
       const fileResults = processFile(filePath, fileNameWithoutExtension);
 
-      // Group results by range and prompt
+      // Group results by range and namesInSequence
       fileResults.forEach((fileResult) => {
-        const { range, prompt, calculations } = fileResult;
+        const { range, namesInSequence, calculations } = fileResult;
 
         // Initialize the group if it doesn't exist
         if (!groupedResult[range]) {
           groupedResult[range] = {
-            prompt,
+            namesInSequence,  // Replace prompt with namesInSequence
             calculations: {}
           };
         }
 
         // Merge calculations for this file into the existing range
-        Object.assign(groupedResult[range].calculations, calculations);
+        groupedResult[range].calculations[fileNameWithoutExtension] = calculations[fileNameWithoutExtension];
       });
     }
   });
@@ -207,7 +218,6 @@ function processAllFiles(directoryPath) {
 // Function to write results to a new JSON file
 function writeResultsToFile(outputFilePath, data) {
   fs.writeFileSync(outputFilePath, JSON.stringify(data, null, 2));
-  console.log(`Results written to ${outputFilePath}`);
 }
 
 // Function to perform ANOVA for all news files passed through a range
@@ -307,7 +317,7 @@ function performBetweenGroupVarianceAnalysis(results) {
 // Main execution function
 function main() {
   const directoryPath = './'; // Directory with all input JSON files
-  const outputFilePath = './raw/allfilesWithinRange.json'; // Path for output file
+  const outputFilePath = './compiled/analysis.json'; // Path for output file
   const result = processAllFiles(directoryPath);
   writeResultsToFile(outputFilePath, result);
 
@@ -319,7 +329,7 @@ function main() {
   const betweenGroupVarianceResults = performBetweenGroupVarianceAnalysis(processedResults);
 
   // Step 4: Write the between-group variance analysis results to a new file
-  const outputVarianceFilePath = './raw/allSameNewsAcrossRange.json';
+  const outputVarianceFilePath = './compiled/check.json';
   writeResultsToFile(outputVarianceFilePath, betweenGroupVarianceResults);
 
 }

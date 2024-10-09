@@ -880,7 +880,7 @@
     }
   },
   "Global": {
-    "Global_Between_Group_ANOVA_Results": {
+    "Between_Range_ANOVA_Results": {
       "anovaI0": {
         "overallMean": 1.1682539682539683,
         "groupMeans": [
