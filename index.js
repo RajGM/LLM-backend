@@ -17,17 +17,16 @@ app.post('/', async (req, res) => {
         // Read two separate files asynchronously
         const file1 = fs.readFile('./results/analysis/raw/allfilesWithinRange.json', 'utf-8');
         const file2 = fs.readFile('./results/analysis/raw/allSameNewsAcrossRange.json', 'utf-8');
-        const file3 = fs.readFile('./results/analysis/raw/controlled_random/check.json', 'utf-8');
-
+        
         // Wait for both files to be read
-        const [data1, data2, data3] = await Promise.all([file1, file2, file3]);
+        const [data1, data2] = await Promise.all([file1, file2]);
 
         // Parse the JSON data from both files
         const jsonData1 = JSON.parse(data1);
         const jsonData2 = JSON.parse(data2);
-        const jsonData3 = JSON.parse(data3);
+       
 
-        console.log(typeof jsonData1, typeof jsonData2, typeof jsonData3)
+        console.log(typeof jsonData1, typeof jsonData2)
 
         // Combine both results in an array or any other structure you prefer
         res.json({
@@ -48,20 +47,23 @@ app.post('/domaindata', async (req, res) => {
         // Read two separate files asynchronously
         const file1 = fs.readFile('./results/analysis/raw/domain_data.json', 'utf-8');
         const file2 = fs.readFile('./results/analysis/raw/extracted_data_all_ranges.json', 'utf-8');
+        const file3 = fs.readFile('./results/analysis/raw/controlled_random/check.json', 'utf-8');
 
         // Wait for both files to be read
-        const [data1, data2] = await Promise.all([file1, file2]);
+        const [data1, data2, data3] = await Promise.all([file1, file2, file3]);
 
         // Parse the JSON data from both files
         const jsonData1 = JSON.parse(data1);
         const jsonData2 = JSON.parse(data2);
+        const jsonData3 = JSON.parse(data3);
 
-        console.log(typeof jsonData1, typeof jsonData2)
+        console.log(typeof jsonData1, typeof jsonData2, typeof jsonData3)
 
         // Combine both results in an array or any other structure you prefer
         res.json({
             file1Data: jsonData1,
-            file2Data: jsonData2
+            file2Data: jsonData2,
+            file3Data: jsonData3
         });
 
     } catch (error) {
