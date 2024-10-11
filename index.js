@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const path = require('path');
+const json = require('body-parser/lib/types/json');
 
 dotenv.config();
 const app = express();
@@ -48,22 +49,25 @@ app.post('/domaindata', async (req, res) => {
         const file1 = fs.readFile('./results/analysis/raw/domain_data.json', 'utf-8');
         const file2 = fs.readFile('./results/analysis/raw/extracted_data_all_ranges.json', 'utf-8');
         const file3 = fs.readFile('./results/analysis/raw/controlled_random/check.json', 'utf-8');
+        const file4 = fs.readFile('./results/analysis/raw/extracted_data_all_ranges.json', 'utf-8');
 
         // Wait for both files to be read
-        const [data1, data2, data3] = await Promise.all([file1, file2, file3]);
+        const [data1, data2, data3, data4] = await Promise.all([file1, file2, file3, file4]);
 
         // Parse the JSON data from both files
         const jsonData1 = JSON.parse(data1);
         const jsonData2 = JSON.parse(data2);
         const jsonData3 = JSON.parse(data3);
+        const jsonData4 = JSON.parse(data4)
 
-        console.log(typeof jsonData1, typeof jsonData2, typeof jsonData3)
+        console.log(typeof jsonData1, typeof jsonData2, typeof jsonData3, typeof jsonData4)
 
         // Combine both results in an array or any other structure you prefer
         res.json({
             file1Data: jsonData1,
             file2Data: jsonData2,
-            file3Data: jsonData3
+            file3Data: jsonData3,
+            file4Data: jsonData4
         });
 
     } catch (error) {

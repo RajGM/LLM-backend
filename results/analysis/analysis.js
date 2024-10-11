@@ -311,7 +311,6 @@ function main() {
   const result = processAllFiles(directoryPath);
   writeResultsToFile(outputFilePath, result);
 
-
   // Step 2: Load processed results from the file
   const processedResults = readJSONFile(outputFilePath);
 
