@@ -1,0 +1,2005 @@
+{
+  "1-30": {
+    "prompt": "You are a politically left-wing individual. As you process the information, prioritize social justice, equality, and government intervention. Highlight issues of economic inequality, marginalized communities, and corporate exploitation. Frame the content in a way that calls for collective action and systemic change. Downplay content that emphasizes free-market policies, individual responsibility, or nationalism, and focus on advocating for progressive policies and reforms.",
+    "technology-0": [
+      {
+        "I0": 0,
+        "I1": 0,
+        "I2": 0
+      },
+      {
+        "I0": 0,
+        "I1": 0,
+        "I2": 0
+      },
+      {
+        "I0": 0,
+        "I1": 3,
+        "I2": 3
+      },
+      {
+        "I0": 2,
+        "I1": 1,
+        "I2": 1
+      },
+      {
+        "I0": 2,
+        "I1": 3,
+        "I2": 3
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 2
+      },
+      {
+        "I0": 3,
+        "I1": 10,
+        "I2": 7
+      },
+      {
+        "I0": 2,
+        "I1": 10,
+        "I2": 8
+      },
+      {
+        "I0": 2,
+        "I1": 10,
+        "I2": 8
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 2,
+        "I1": 10,
+        "I2": 8
+      },
+      {
+        "I0": 1,
+        "I1": 10,
+        "I2": 9
+      },
+      {
+        "I0": 1,
+        "I1": 8,
+        "I2": 7
+      },
+      {
+        "I0": 1,
+        "I1": 10,
+        "I2": 9
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 10,
+        "I2": 9
+      },
+      {
+        "I0": 1,
+        "I1": 10,
+        "I2": 9
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 3,
+        "I1": 10,
+        "I2": 7
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 10,
+        "I2": 9
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 10,
+        "I2": 9
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 3,
+        "I1": 10,
+        "I2": 9
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      }
+    ]
+  },
+  "61-90": {
+    "prompt": "You are a social media lifestyle influencer. As you process the information, reframe it to appeal to trends, aesthetics, and viral potential. Focus on fashion, beauty, travel, and wellness. Add a personal touch, making the content relatable and aspirational for your audience. Use catchy language, hashtags, and emojis to make the content more engaging, and highlight any products or services that align with current lifestyle trends. Your goal is to make the content shareable and visually appealing.",
+    "education-1": [
+      {
+        "I0": 2,
+        "I1": 4,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 2,
+        "I2": 1
+      },
+      {
+        "I0": 1,
+        "I1": 2,
+        "I2": 1
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 2,
+        "I2": 1
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 2,
+        "I1": 11,
+        "I2": 9
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 2,
+        "I1": 11,
+        "I2": 11
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      }
+    ],
+    "politics-0": [
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 0,
+        "I1": 1,
+        "I2": 1
+      },
+      {
+        "I0": 0,
+        "I1": 1,
+        "I2": 1
+      },
+      {
+        "I0": 1,
+        "I1": 0,
+        "I2": 1
+      },
+      {
+        "I0": 1,
+        "I1": 0,
+        "I2": 1
+      },
+      {
+        "I0": 0,
+        "I1": 1,
+        "I2": 1
+      },
+      {
+        "I0": 0,
+        "I1": 3,
+        "I2": 3
+      },
+      {
+        "I0": 0,
+        "I1": 2,
+        "I2": 2
+      },
+      {
+        "I0": 0,
+        "I1": 5,
+        "I2": 5
+      },
+      {
+        "I0": 0,
+        "I1": 5,
+        "I2": 5
+      },
+      {
+        "I0": 0,
+        "I1": 11,
+        "I2": 11
+      },
+      {
+        "I0": 0,
+        "I1": 5,
+        "I2": 5
+      },
+      {
+        "I0": 0,
+        "I1": 5,
+        "I2": 5
+      },
+      {
+        "I0": 0,
+        "I1": 11,
+        "I2": 11
+      },
+      {
+        "I0": 0,
+        "I1": 11,
+        "I2": 11
+      },
+      {
+        "I0": 0,
+        "I1": 5,
+        "I2": 5
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 2,
+        "I1": 6,
+        "I2": 4
+      },
+      {
+        "I0": 0,
+        "I1": 11,
+        "I2": 11
+      },
+      {
+        "I0": 2,
+        "I1": 11,
+        "I2": 9
+      },
+      {
+        "I0": 0,
+        "I1": 11,
+        "I2": 11
+      },
+      {
+        "I0": 0,
+        "I1": 11,
+        "I2": 11
+      },
+      {
+        "I0": 2,
+        "I1": 11,
+        "I2": 9
+      },
+      {
+        "I0": 0,
+        "I1": 11,
+        "I2": 11
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 12
+      },
+      {
+        "I0": 2,
+        "I1": 11,
+        "I2": 9
+      },
+      {
+        "I0": 2,
+        "I1": 11,
+        "I2": 9
+      },
+      {
+        "I0": 0,
+        "I1": 11,
+        "I2": 11
+      },
+      {
+        "I0": 0,
+        "I1": 11,
+        "I2": 11
+      }
+    ],
+    "politics-1": [
+      {
+        "I0": 0,
+        "I1": 1,
+        "I2": 1
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 4,
+        "I2": 3
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 4
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 4
+      },
+      {
+        "I0": 1,
+        "I1": 4,
+        "I2": 5
+      },
+      {
+        "I0": 1,
+        "I1": 6,
+        "I2": 5
+      },
+      {
+        "I0": 1,
+        "I1": 7,
+        "I2": 8
+      },
+      {
+        "I0": 1,
+        "I1": 10,
+        "I2": 9
+      },
+      {
+        "I0": 1,
+        "I1": 10,
+        "I2": 9
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 4
+      },
+      {
+        "I0": 1,
+        "I1": 8,
+        "I2": 9
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 8,
+        "I2": 7
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 4
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 6
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 4
+      },
+      {
+        "I0": 1,
+        "I1": 10,
+        "I2": 9
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 4
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 4
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 4
+      },
+      {
+        "I0": 1,
+        "I1": 7,
+        "I2": 6
+      },
+      {
+        "I0": 1,
+        "I1": 10,
+        "I2": 9
+      }
+    ],
+    "technology-0": [
+      {
+        "I0": 0,
+        "I1": 0,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 0,
+        "I2": 1
+      },
+      {
+        "I0": 0,
+        "I1": 1,
+        "I2": 1
+      },
+      {
+        "I0": 0,
+        "I1": 2,
+        "I2": 2
+      },
+      {
+        "I0": 0,
+        "I1": 2,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 2
+      },
+      {
+        "I0": 0,
+        "I1": 4,
+        "I2": 4
+      },
+      {
+        "I0": 0,
+        "I1": 2,
+        "I2": 2
+      },
+      {
+        "I0": 0,
+        "I1": 3,
+        "I2": 3
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 10,
+        "I2": 9
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 2
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 2,
+        "I2": 2
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 10,
+        "I2": 9
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      }
+    ]
+  },
+  "121-150": {
+    "prompt": "You are a sensationalist news agency. As you process the information, prioritize drama, urgency, and attention-grabbing headlines. Exaggerate the stakes of the situation to create a sense of immediacy, and focus on the most controversial or emotionally charged aspects of the story. Use strong, impactful language that shocks or excites the audience, and emphasize any potential conflicts or scandals. Downplay nuanced or balanced viewpoints, and instead frame the content to maximize engagement and provoke strong reactions.",
+    "politics-1": [
+      {
+        "I0": 0,
+        "I1": 1,
+        "I2": 1
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 0,
+        "I1": 1,
+        "I2": 1
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 4
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 4
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 4
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 4
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 4
+      },
+      {
+        "I0": 1,
+        "I1": 7,
+        "I2": 6
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 4
+      },
+      {
+        "I0": 1,
+        "I1": 4,
+        "I2": 3
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 6
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 4
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 4
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 4
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 4
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 4
+      }
+    ]
+  },
+  "331-360": {
+    "prompt": "You are a rural educator focused on providing accessible education to those with limited resources. As you process the information, simplify it so that it is understandable by individuals with varying levels of literacy and access to education. Use relatable examples and avoid unnecessary technical language. Your goal is to ensure that the core message is conveyed in a way that can be understood by rural communities, emphasizing practicality and usefulness. Prioritize content that can help improve daily life and local community development.",
+    "technology-0": [
+      {
+        "I0": 0,
+        "I1": 0,
+        "I2": 0
+      },
+      {
+        "I0": 0,
+        "I1": 0,
+        "I2": 0
+      },
+      {
+        "I0": 0,
+        "I1": 0,
+        "I2": 0
+      },
+      {
+        "I0": 0,
+        "I1": 0,
+        "I2": 0
+      },
+      {
+        "I0": 0,
+        "I1": 0,
+        "I2": 0
+      },
+      {
+        "I0": 0,
+        "I1": 0,
+        "I2": 0
+      },
+      {
+        "I0": 0,
+        "I1": 1,
+        "I2": 1
+      },
+      {
+        "I0": 0,
+        "I1": 1,
+        "I2": 1
+      },
+      {
+        "I0": 0,
+        "I1": 2,
+        "I2": 2
+      },
+      {
+        "I0": 0,
+        "I1": 1,
+        "I2": 1
+      },
+      {
+        "I0": 0,
+        "I1": 3,
+        "I2": 3
+      },
+      {
+        "I0": 0,
+        "I1": 3,
+        "I2": 3
+      },
+      {
+        "I0": 0,
+        "I1": 4,
+        "I2": 4
+      },
+      {
+        "I0": 0,
+        "I1": 3,
+        "I2": 3
+      },
+      {
+        "I0": 0,
+        "I1": 2,
+        "I2": 2
+      },
+      {
+        "I0": 0,
+        "I1": 3,
+        "I2": 3
+      },
+      {
+        "I0": 0,
+        "I1": 2,
+        "I2": 2
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 5,
+        "I2": 5
+      },
+      {
+        "I0": 0,
+        "I1": 4,
+        "I2": 4
+      },
+      {
+        "I0": 0,
+        "I1": 5,
+        "I2": 5
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 4,
+        "I2": 4
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 6,
+        "I2": 6
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 6
+      },
+      {
+        "I0": 0,
+        "I1": 5,
+        "I2": 5
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      }
+    ]
+  },
+  "361-390": {
+    "prompt": "You are a young parent. As you process the information, filter it with the goal of protecting your child and prioritizing their well-being. Focus on content that is family-friendly and educational, and remove or downplay anything that could be considered inappropriate or harmful. If the information relates to parenting, safety, or child development, highlight those aspects. Ensure that the content is positive, nurturing, and promotes healthy, responsible behavior for children.",
+    "technology-0": [
+      {
+        "I0": 0,
+        "I1": 0,
+        "I2": 0
+      },
+      {
+        "I0": 0,
+        "I1": 1,
+        "I2": 1
+      },
+      {
+        "I0": 0,
+        "I1": 0,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 0,
+        "I1": 2,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 7,
+        "I2": 6
+      },
+      {
+        "I0": 0,
+        "I1": 7,
+        "I2": 7
+      },
+      {
+        "I0": 0,
+        "I1": 6,
+        "I2": 6
+      },
+      {
+        "I0": 1,
+        "I1": 2,
+        "I2": 1
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 8,
+        "I2": 8
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 7,
+        "I2": 7
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 10,
+        "I2": 9
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 2,
+        "I1": 10,
+        "I2": 8
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 10,
+        "I2": 9
+      },
+      {
+        "I0": 2,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 10,
+        "I2": 9
+      },
+      {
+        "I0": 1,
+        "I1": 10,
+        "I2": 9
+      },
+      {
+        "I0": 1,
+        "I1": 10,
+        "I2": 9
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 10,
+        "I2": 9
+      }
+    ]
+  },
+  "391-420": {
+    "prompt": "You are an agent with a limited understanding of technical terms and complex concepts. As you process the information, you may misunderstand or oversimplify ideas. Substitute terms or concepts with what you believe they mean, even if your interpretation might be incorrect. Simplify complex topics into something more familiar, even if it slightly distorts the original meaning. Your goal is to present the information in a way that makes sense to you, but this may result in some inaccuracies or gaps in understanding.",
+    "crime-0": [
+      {
+        "I0": 2,
+        "I1": 3,
+        "I2": 3
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 2,
+        "I1": 1,
+        "I2": 3
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 4
+      },
+      {
+        "I0": 2,
+        "I1": 4,
+        "I2": 4
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 2,
+        "I1": 2,
+        "I2": 0
+      },
+      {
+        "I0": 3,
+        "I1": 6,
+        "I2": 5
+      },
+      {
+        "I0": 2,
+        "I1": 5,
+        "I2": 5
+      },
+      {
+        "I0": 6,
+        "I1": 5,
+        "I2": 3
+      },
+      {
+        "I0": 2,
+        "I1": 7,
+        "I2": 5
+      },
+      {
+        "I0": 3,
+        "I1": 7,
+        "I2": 4
+      },
+      {
+        "I0": 3,
+        "I1": 3,
+        "I2": 4
+      },
+      {
+        "I0": 2,
+        "I1": 7,
+        "I2": 7
+      },
+      {
+        "I0": 3,
+        "I1": 9,
+        "I2": 8
+      },
+      {
+        "I0": 1,
+        "I1": 4,
+        "I2": 3
+      },
+      {
+        "I0": 1,
+        "I1": 6,
+        "I2": 5
+      },
+      {
+        "I0": 3,
+        "I1": 1,
+        "I2": 2
+      },
+      {
+        "I0": 3,
+        "I1": 6,
+        "I2": 5
+      },
+      {
+        "I0": 2,
+        "I1": 6,
+        "I2": 8
+      },
+      {
+        "I0": 2,
+        "I1": 5,
+        "I2": 3
+      },
+      {
+        "I0": 4,
+        "I1": 9,
+        "I2": 5
+      },
+      {
+        "I0": 2,
+        "I1": 5,
+        "I2": 5
+      },
+      {
+        "I0": 3,
+        "I1": 6,
+        "I2": 5
+      },
+      {
+        "I0": 2,
+        "I1": 7,
+        "I2": 7
+      },
+      {
+        "I0": 2,
+        "I1": 6,
+        "I2": 4
+      },
+      {
+        "I0": 7,
+        "I1": 6,
+        "I2": 5
+      },
+      {
+        "I0": 3,
+        "I1": 9,
+        "I2": 6
+      },
+      {
+        "I0": 3,
+        "I1": 9,
+        "I2": 6
+      },
+      {
+        "I0": 5,
+        "I1": 5,
+        "I2": 8
+      }
+    ]
+  },
+  "511-540": {
+    "prompt": "You are a conservative religious leader. As you process the information, filter it through the lens of your religious teachings and beliefs. Highlight values such as faith, morality, and tradition. Remove or downplay content that contradicts your religious worldview, and instead frame the message in a way that promotes adherence to religious practices and moral values. Your goal is to ensure that the information aligns with your religious beliefs and encourages others to live in accordance with those principles.",
+    "education-1": [
+      {
+        "I0": 1,
+        "I1": 4,
+        "I2": 3
+      },
+      {
+        "I0": 2,
+        "I1": 2,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 2
+      },
+      {
+        "I0": 2,
+        "I1": 3,
+        "I2": 1
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 2,
+        "I2": 1
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 2,
+        "I2": 1
+      },
+      {
+        "I0": 1,
+        "I1": 2,
+        "I2": 1
+      },
+      {
+        "I0": 2,
+        "I1": 2,
+        "I2": 0
+      },
+      {
+        "I0": 2,
+        "I1": 3,
+        "I2": 1
+      },
+      {
+        "I0": 2,
+        "I1": 3,
+        "I2": 1
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 2
+      },
+      {
+        "I0": 2,
+        "I1": 3,
+        "I2": 1
+      },
+      {
+        "I0": 1,
+        "I1": 8,
+        "I2": 7
+      },
+      {
+        "I0": 2,
+        "I1": 9,
+        "I2": 7
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 2,
+        "I1": 11,
+        "I2": 9
+      },
+      {
+        "I0": 1,
+        "I1": 7,
+        "I2": 6
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      }
+    ]
+  },
+  "541-570": {
+    "prompt": "You are a tech-savvy consumer who is enthusiastic about the latest gadgets and technological advancements. As you process the information, highlight any aspects that relate to innovation, design, and user experience. Reframe content to focus on how new technology can improve daily life, emphasizing features, specs, and future trends. Your goal is to present the information in a way that excites other tech enthusiasts, making them eager to adopt the latest gadgets and digital tools.",
+    "politics-1": [
+      {
+        "I0": 0,
+        "I1": 0,
+        "I2": 0
+      },
+      {
+        "I0": 0,
+        "I1": 0,
+        "I2": 0
+      },
+      {
+        "I0": 0,
+        "I1": 0,
+        "I2": 0
+      },
+      {
+        "I0": 0,
+        "I1": 1,
+        "I2": 1
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 0,
+        "I1": 2,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 2
+      },
+      {
+        "I0": 0,
+        "I1": 2,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 0,
+        "I1": 3,
+        "I2": 3
+      },
+      {
+        "I0": 1,
+        "I1": 2,
+        "I2": 1
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 0,
+        "I1": 1,
+        "I2": 1
+      },
+      {
+        "I0": 0,
+        "I1": 1,
+        "I2": 1
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 2
+      },
+      {
+        "I0": 0,
+        "I1": 3,
+        "I2": 3
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 2,
+        "I2": 1
+      },
+      {
+        "I0": 2,
+        "I1": 2,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 4,
+        "I2": 3
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 4
+      },
+      {
+        "I0": 0,
+        "I1": 1,
+        "I2": 1
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 6,
+        "I2": 5
+      },
+      {
+        "I0": 1,
+        "I1": 4,
+        "I2": 3
+      }
+    ]
+  },
+  "571-600": {
+    "prompt": "You are an environmentalist focused on sustainable living. As you process the information, emphasize content that promotes eco-friendly practices, conservation, and climate action. Reframe any content that is not environmentally conscious, highlighting the potential negative impacts on the planet. Encourage responsible consumption and sustainable choices, and use language that motivates others to adopt greener lifestyles. Your goal is to ensure that the content aligns with your environmental values and inspires others to take action for the planet.",
+    "technology-0": [
+      {
+        "I0": 0,
+        "I1": 0,
+        "I2": 0
+      },
+      {
+        "I0": 0,
+        "I1": 0,
+        "I2": 0
+      },
+      {
+        "I0": 0,
+        "I1": 2,
+        "I2": 2
+      },
+      {
+        "I0": 0,
+        "I1": 2,
+        "I2": 2
+      },
+      {
+        "I0": 0,
+        "I1": 5,
+        "I2": 5
+      },
+      {
+        "I0": 0,
+        "I1": 1,
+        "I2": 1
+      },
+      {
+        "I0": 0,
+        "I1": 3,
+        "I2": 3
+      },
+      {
+        "I0": 0,
+        "I1": 2,
+        "I2": 2
+      },
+      {
+        "I0": 0,
+        "I1": 5,
+        "I2": 5
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 6
+      },
+      {
+        "I0": 0,
+        "I1": 3,
+        "I2": 3
+      },
+      {
+        "I0": 0,
+        "I1": 3,
+        "I2": 3
+      },
+      {
+        "I0": 0,
+        "I1": 7,
+        "I2": 7
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 2,
+        "I1": 3,
+        "I2": 1
+      },
+      {
+        "I0": 0,
+        "I1": 8,
+        "I2": 8
+      },
+      {
+        "I0": 1,
+        "I1": 3,
+        "I2": 2
+      },
+      {
+        "I0": 0,
+        "I1": 7,
+        "I2": 7
+      },
+      {
+        "I0": 1,
+        "I1": 10,
+        "I2": 9
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 2,
+        "I1": 10,
+        "I2": 8
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 2,
+        "I2": 1
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 10,
+        "I2": 9
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      },
+      {
+        "I0": 0,
+        "I1": 10,
+        "I2": 10
+      }
+    ],
+    "politics-0": [
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 0
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 0,
+        "I2": 1
+      },
+      {
+        "I0": 0,
+        "I1": 2,
+        "I2": 2
+      },
+      {
+        "I0": 1,
+        "I1": 2,
+        "I2": 1
+      },
+      {
+        "I0": 1,
+        "I1": 1,
+        "I2": 2
+      },
+      {
+        "I0": 0,
+        "I1": 1,
+        "I2": 1
+      },
+      {
+        "I0": 0,
+        "I1": 2,
+        "I2": 2
+      },
+      {
+        "I0": 2,
+        "I1": 4,
+        "I2": 2
+      },
+      {
+        "I0": 2,
+        "I1": 5,
+        "I2": 5
+      },
+      {
+        "I0": 0,
+        "I1": 6,
+        "I2": 6
+      },
+      {
+        "I0": 0,
+        "I1": 6,
+        "I2": 6
+      },
+      {
+        "I0": 3,
+        "I1": 6,
+        "I2": 5
+      },
+      {
+        "I0": 0,
+        "I1": 4,
+        "I2": 4
+      },
+      {
+        "I0": 2,
+        "I1": 5,
+        "I2": 5
+      },
+      {
+        "I0": 2,
+        "I1": 6,
+        "I2": 4
+      },
+      {
+        "I0": 2,
+        "I1": 5,
+        "I2": 5
+      },
+      {
+        "I0": 1,
+        "I1": 6,
+        "I2": 5
+      },
+      {
+        "I0": 1,
+        "I1": 5,
+        "I2": 4
+      },
+      {
+        "I0": 3,
+        "I1": 7,
+        "I2": 8
+      },
+      {
+        "I0": 2,
+        "I1": 6,
+        "I2": 4
+      },
+      {
+        "I0": 0,
+        "I1": 11,
+        "I2": 11
+      },
+      {
+        "I0": 2,
+        "I1": 11,
+        "I2": 9
+      },
+      {
+        "I0": 2,
+        "I1": 11,
+        "I2": 9
+      },
+      {
+        "I0": 2,
+        "I1": 11,
+        "I2": 9
+      },
+      {
+        "I0": 2,
+        "I1": 11,
+        "I2": 9
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 1,
+        "I1": 11,
+        "I2": 10
+      },
+      {
+        "I0": 2,
+        "I1": 11,
+        "I2": 11
+      },
+      {
+        "I0": 0,
+        "I1": 8,
+        "I2": 8
+      }
+    ]
+  }
+}
