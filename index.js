@@ -12,34 +12,34 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-app.post('/', async (req, res) => {
-    try {
-        console.log("POST REQEST JHERE")
-        // Read two separate files asynchronously
-        const file1 = fs.readFile('./results/analysis/raw/allfilesWithinRange.json', 'utf-8');
-        const file2 = fs.readFile('./results/analysis/raw/allSameNewsAcrossRange.json', 'utf-8');
+// app.post('/', async (req, res) => {
+//     try {
+//         console.log("POST REQEST JHERE")
+//         // Read two separate files asynchronously
+//         const file1 = fs.readFile('./display_files/same_agents/allfilesWithinRange.json', 'utf-8');
+//         const file2 = fs.readFile('./display_files/same_agents/allSameNewsAcrossRange.json', 'utf-8');
         
-        // Wait for both files to be read
-        const [data1, data2] = await Promise.all([file1, file2]);
+//         // Wait for both files to be read
+//         const [data1, data2] = await Promise.all([file1, file2]);
 
-        // Parse the JSON data from both files
-        const jsonData1 = JSON.parse(data1);
-        const jsonData2 = JSON.parse(data2);
+//         // Parse the JSON data from both files
+//         const jsonData1 = JSON.parse(data1);
+//         const jsonData2 = JSON.parse(data2);
        
-        console.log(typeof jsonData1, typeof jsonData2)
+//         console.log(typeof jsonData1, typeof jsonData2)
 
-        // Combine both results in an array or any other structure you prefer
-        res.json({
-            file1Data: jsonData1,
-            file2Data: jsonData2,
-            file3Data: jsonData3
-        });
+//         // Combine both results in an array or any other structure you prefer
+//         res.json({
+//             file1Data: jsonData1,
+//             file2Data: jsonData2,
+//             file3Data: jsonData3
+//         });
 
-    } catch (error) {
-        console.error("Error processing article:", error);
-        res.status(500).json({ error: 'An error occurred while processing the article.' });
-    }
-});
+//     } catch (error) {
+//         console.error("Error processing article:", error);
+//         res.status(500).json({ error: 'An error occurred while processing the article.' });
+//     }
+// });
 
 app.post('/domaindata', async (req, res) => {
     try {
